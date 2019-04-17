@@ -1,0 +1,3 @@
+[submodule "WH_CommonControlLibrary"]
+	path = WH_CommonControlLibrary
+	url = https://github.com/Whimsyduke/WH_CommonControlLibrary.git

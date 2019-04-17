@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SC2_FileListViewItem.xaml.cs">
+      <DependentUpon>SC2_FileListViewItem.xaml</DependentUpon>
+    </Compile>
     <Page Include="SC2_CombineData_MainWIndow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +70,10 @@
       <DependentUpon>SC2_CombineData_MainWIndow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SC2_FileListViewItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,6 +100,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WH_CommonControlLibrary\WH_CommonControlLibrary.csproj">
+      <Project>{2782f9ad-9163-4556-b682-4b10e0569c72}</Project>
+      <Name>WH_CommonControlLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
