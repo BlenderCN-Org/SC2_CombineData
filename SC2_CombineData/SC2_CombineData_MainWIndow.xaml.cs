@@ -20,9 +20,35 @@ namespace SC2_CombineData
     /// </summary>
     public partial class SC2_CombineData_MainWindow : Window
     {
+        #region 属性字段
+
+
+        #endregion
+
+        #region 构造函数
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public SC2_CombineData_MainWindow()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region 控件方法
+
+        /// <summary>
+        /// 添加按钮点击事件
+        /// </summary>
+        /// <param name="sender">响应对象</param>
+        /// <param name="e">响应参数</param>
+        private void Button_Add_Click(object sender, RoutedEventArgs e)
+        {
+            ListView_FileList.Items.Add(new SC2_FileListViewItem());
+        }
+
+        #endregion
     }
 }

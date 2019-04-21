@@ -21,45 +21,43 @@
             Header="配置">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    Text="数据文件路径:" />
-                <whcom:WH_SelectPathControl
-                    Name="SelectPathControl_FilePath"
-                    Grid.Column="1"
-                    ButtonContent="选择" />
                 <Button
                     Name="Button_Add"
-                    Grid.Column="2"
+                    Grid.Column="0"
                     Margin="3"
-                    Content="添加" />
+                    Content="添加" Click="Button_Add_Click" />
+                <Button
+                    Name="Button_Delete"
+                    Grid.Column="1"
+                    Margin="3"
+                    Content="删除" />
                 <Button
                     Name="Button_Up"
-                    Grid.Column="3"
+                    Grid.Column="2"
                     Margin="3"
                     Content="上移" />
                 <Button
                     Name="Button_Down"
-                    Grid.Column="4"
+                    Grid.Column="3"
                     Margin="3"
                     Content="下移" />
                 <Button
                     Name="Button_Generate"
-                    Grid.Column="5"
+                    Grid.Column="4"
                     Margin="3"
                     Content="生成" />
             </Grid>
         </GroupBox>
         <GroupBox Header="列表" Grid.Row="1" Margin="3">
-            <ListView Name="ListView_FileList"/>
+            <ListView Name="ListView_FileList">
+                <local:SC2_FileListViewItem/>
+            </ListView>
         </GroupBox>
     </Grid>
 </Window>
