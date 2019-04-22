@@ -26,7 +26,7 @@ namespace SC2_CombineData
         /// <summary>
         /// 路径文本依赖项
         /// </summary>
-        public static readonly DependencyProperty PathTextProperty = DependencyProperty.Register("PathText", typeof(string), typeof(SC2_FileListViewItem));
+        public static readonly DependencyProperty PathTextProperty = DependencyProperty.Register(nameof(PathText), typeof(string), typeof(SC2_FileListViewItem));
         /// <summary>
         /// 路径文本属性
         /// </summary>
@@ -34,6 +34,19 @@ namespace SC2_CombineData
         {
             set { SelectPathControl_FilePath.PathText = value; SetValue(PathTextProperty, value); }
             get { SetValue(PathTextProperty, SelectPathControl_FilePath.PathText); return (string)GetValue(PathTextProperty); }
+        }
+
+        /// <summary>
+        /// 路径文本依赖项
+        /// </summary>
+        public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register("ItemWidth", typeof(double), typeof(SC2_FileListViewItem));
+        /// <summary>
+        /// 路径文本属性
+        /// </summary>
+        public double ItemWidth
+        {
+            set { SetValue(ItemWidthProperty, value); }
+            get { return (double)GetValue(ItemWidthProperty); }
         }
 
         #endregion
@@ -46,6 +59,7 @@ namespace SC2_CombineData
         public SC2_FileListViewItem()
         {
             InitializeComponent();
+            ItemWidth = this.Width;
         }
 
         #endregion

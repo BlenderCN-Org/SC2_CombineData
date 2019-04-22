@@ -46,7 +46,12 @@ namespace SC2_CombineData
         /// <param name="e">响应参数</param>
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
-            ListView_FileList.Items.Add(new SC2_FileListViewItem());
+            SC2_FileListViewItem item = new SC2_FileListViewItem();
+            Binding binding = new Binding("ActualWidth")
+            {
+                ElementName = "ListView_FileList"
+            };
+            ListView_FileList.Items.Add(item);
         }
 
         #endregion
