@@ -101,11 +101,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WH_CommonControlLibrary\WH_CommonControlLibrary.csproj">
-      <Project>{2782f9ad-9163-4556-b682-4b10e0569c72}</Project>
-      <Name>WH_CommonControlLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,8 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:whcom="clr-namespace:WH_CommonControlLibrary.UIControl.Control;assembly=WH_CommonControlLibrary"
     Name="ListViewItem_Item"
-    mc:Ignorable="d" BorderBrush="LightGray" BorderThickness="1">
-    <Grid Name="Grid_Item" Width="{Binding ElementName=ListViewItem_Item,Path=ItemWidth}">
+    Margin="1"
+    BorderBrush="LightGray"
+    BorderThickness="1"
+    mc:Ignorable="d">
+    <Grid Name="Grid_Item" Width="{Binding ElementName=ListViewItem_Item, Path=ItemWidth}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />

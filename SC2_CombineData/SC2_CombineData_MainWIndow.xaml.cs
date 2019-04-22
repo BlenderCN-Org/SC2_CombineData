@@ -51,6 +51,7 @@ namespace SC2_CombineData
             {
                 ElementName = "ListView_FileList"
             };
+            item.SetBinding(SC2_FileListViewItem.ItemWidthProperty, binding);
             ListView_FileList.Items.Add(item);
         }
 
