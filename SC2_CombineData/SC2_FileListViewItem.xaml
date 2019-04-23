@@ -5,24 +5,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SC2_CombineData"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:whcom="clr-namespace:WH_CommonControlLibrary.UIControl.Control;assembly=WH_CommonControlLibrary"
+    xmlns:toolkit="clr-namespace:WHLib_Toolkit.UIControl.Control;assembly=WHLib_Toolkit"
     Name="ListViewItem_Item"
     Margin="1"
     BorderBrush="LightGray"
     BorderThickness="1"
     mc:Ignorable="d">
-    <Grid Name="Grid_Item" Width="{Binding ElementName=ListViewItem_Item, Path=ItemWidth}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <TextBlock
-            Grid.Column="0"
-            VerticalAlignment="Center"
-            Text="Mod路径:" />
-        <whcom:WH_SelectPathControl
-            Name="SelectPathControl_FilePath"
-            Grid.Column="1"
-            ButtonContent="选择" />
-    </Grid>
+    <toolkit:WH_SelectPathControl
+        Name="SelectPathControl_FilePath"
+        Grid.Column="1"
+        
+        Width="{Binding ElementName=ListViewItem_Item, Path=ItemWidth}"
+        ButtonContent="选择"
+        LabelContent="文件路径：" />
 </ListViewItem>
