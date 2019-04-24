@@ -9,6 +9,10 @@
     Width="850"
     Height="450"
     mc:Ignorable="d">
+    <Window.Resources>
+        <local:ConverterSelectItemToEnable_Delete x:Key="SelectItemToEnable_DeleteConverter" />
+        <local:ConverterSelectIndexToEnable_UpOrDown x:Key="SelectIndexToEnable_UpOrDownConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -36,17 +40,21 @@
                     Name="Button_Delete"
                     Grid.Column="1"
                     Margin="3"
-                    Content="删除" />
+                    Click="Button_Delete_Click"
+                    Content="删除"
+                    IsEnabled="{Binding ElementName=ListView_FileList, Path=SelectedItem, Converter={StaticResource SelectItemToEnable_DeleteConverter}}" />
                 <Button
                     Name="Button_Up"
                     Grid.Column="2"
                     Margin="3"
-                    Content="上移" />
+                    Content="上移"
+                    IsEnabled="{Binding ElementName=ListView_FileList, Path=SelectedIndex, Converter={StaticResource ResourceKey=SelectIndexToEnable_UpOrDownConverter}, ConverterParameter=True}" />
                 <Button
                     Name="Button_Down"
                     Grid.Column="3"
                     Margin="3"
-                    Content="下移" />
+                    Content="下移"
+                    IsEnabled="{Binding ElementName=ListView_FileList, Path=SelectedIndex, Converter={StaticResource ResourceKey=SelectIndexToEnable_UpOrDownConverter}, ConverterParameter=False}" />
                 <Button
                     Name="Button_Generate"
                     Grid.Column="4"

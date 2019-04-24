@@ -63,5 +63,20 @@ namespace SC2_CombineData
         }
 
         #endregion
+
+        #region 控件事件
+
+        /// <summary>
+        /// 获得焦点事件
+        /// </summary>
+        /// <param name="sender">事件控件</param>
+        /// <param name="e">响应参数</param>
+        private void SelectPathControl_FilePath_GotFocus(object sender, RoutedEventArgs e)
+        {
+            IsSelected = true;
+        }
+
+        #endregion
+
     }
 }
