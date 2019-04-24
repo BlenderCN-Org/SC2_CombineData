@@ -14,7 +14,8 @@
     <toolkit:WH_SelectPathControl
         Name="SelectPathControl_FilePath"
         Grid.Column="1"
-        
+        TextVerticalAlignment="Center"
+        ContentMargin="1"
         Width="{Binding ElementName=ListViewItem_Item, Path=ItemWidth}"
         ButtonContent="选择"
         LabelContent="文件路径：" />

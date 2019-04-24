@@ -30,7 +30,8 @@
                     Name="Button_Add"
                     Grid.Column="0"
                     Margin="3"
-                    Content="添加" Click="Button_Add_Click" />
+                    Click="Button_Add_Click"
+                    Content="添加" />
                 <Button
                     Name="Button_Delete"
                     Grid.Column="1"
@@ -53,9 +54,16 @@
                     Content="生成" />
             </Grid>
         </GroupBox>
-        <GroupBox Header="列表" Grid.Row="1" Margin="3">
-            <ListView Name="ListView_FileList" Padding="-12,0" Margin="10,0" BorderThickness="0">
-                <local:SC2_FileListViewItem ItemWidth="{Binding ElementName=ListView_FileList,Path=ActualWidth}"/>
+        <GroupBox
+            Grid.Row="1"
+            Margin="3"
+            Header="列表">
+            <ListView
+                Name="ListView_FileList"
+                Margin="10,0"
+                Padding="-12,0"
+                BorderThickness="0">
+                <local:SC2_FileListViewItem ItemWidth="{Binding ElementName=ListView_FileList, Path=ActualWidth}" />
             </ListView>
         </GroupBox>
     </Grid>
