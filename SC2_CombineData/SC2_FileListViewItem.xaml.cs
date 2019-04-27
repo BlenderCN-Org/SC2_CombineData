@@ -60,6 +60,7 @@ namespace SC2_CombineData
         {
             InitializeComponent();
             ItemWidth = this.Width;
+            SelectPathControl_FilePath.DefaultDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         }
 
         #endregion
@@ -76,6 +77,15 @@ namespace SC2_CombineData
             IsSelected = true;
         }
 
+        /// <summary>
+        /// 获得焦点事件
+        /// </summary>
+        /// <param name="sender">事件控件</param>
+        /// <param name="e">响应参数</param>
+        private void SelectPathControl_FilePath_TextChangeHandler(object sender, RoutedEventArgs e)
+        {
+
+        }
         #endregion
 
     }

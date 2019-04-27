@@ -39,7 +39,27 @@ namespace SC2_CombineData
 
         #endregion
 
-        #region 控件方法
+        #region 方法
+
+        /// <summary>
+        /// 刷新移动按钮状态
+        /// </summary>
+        public void RefreshMoveButton()
+        {
+            Button_Up.GetBindingExpression(Button.IsEnabledProperty).UpdateTarget();
+            BindingOperations.GetMultiBindingExpression(Button_Down, Button.IsEnabledProperty).UpdateTarget();
+        }
+
+        /// <summary>
+        /// 刷新生成按钮状态
+        /// </summary>
+        public void RefreshGenerateButton()
+        {
+            Button_Generate.GetBindingExpression(Button.IsEnabledProperty).UpdateTarget();
+        }
+        #endregion
+
+        #region 控件事件
 
         /// <summary>
         /// 添加按钮点击事件
@@ -55,11 +75,9 @@ namespace SC2_CombineData
             };
             item.SetBinding(SC2_FileListViewItem.ItemWidthProperty, binding);
             ListView_FileList.Items.Add(item);
+            RefreshMoveButton();
         }
 
-        #endregion
-
-        #region 控件事件
 
         /// <summary>
         /// 获得焦点事件
@@ -73,6 +91,7 @@ namespace SC2_CombineData
             {
                 ListView_FileList.Items.Remove(item);
             }
+            RefreshMoveButton();
         }
 
         #endregion
@@ -113,11 +132,10 @@ namespace SC2_CombineData
 
     }
 
-
     /// <summary>
-    /// 选择序号到上移下移转换器
+    /// 选择序号到上移下移可用性转换器
     /// </summary>
-    public class ConverterSelectIndexToEnable_UpOrDown : IValueConverter
+    public class ConverterSelectIndexToEnable_Up : IValueConverter
     {
         /// <summary>
         /// 转换函数
@@ -129,8 +147,7 @@ namespace SC2_CombineData
         /// <returns>转换结果</returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            bool isUp = bool.Parse(parameter as string);
-            return isUp ? ((int)value > 0) : ((int)value < SC2_CombineData_MainWindow.MainWindow.ListView_FileList.Items.Count - 1);
+            return ((int)value > 0);
         }
 
         /// <summary>
@@ -145,7 +162,79 @@ namespace SC2_CombineData
         {
             return value;
         }
+    }
 
+    /// <summary>
+    /// 选择序号到上移下移可用性转换器
+    /// </summary>
+    public class ConverterSelectIndexToEnable_Down : IMultiValueConverter
+    {
+        /// <summary>
+        /// 转换函数
+        /// </summary>
+        /// <param name="values">值数组</param>
+        /// <param name="targetType">目标类型</param>
+        /// <param name="parameter">参数</param>
+        /// <param name="culture">本地化</param>
+        /// <returns>转换结果</returns>
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            ListView view = values[1] as ListView;
+            return (int)values[0] < view.Items.Count - 1;
+        }
+
+        /// <summary>
+        /// 逆向转换函数
+        /// </summary>
+        /// <param name="value">值数组</param>
+        /// <param name="targetTypes">目标类型</param>
+        /// <param name="parameter">参数</param>
+        /// <param name="culture">本地化</param>
+        /// <returns>转换结果</returns>
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            return null;
+        }
+
+    }
+
+    /// <summary>
+    /// ListView生成按钮可用性转换器
+    /// </summary>
+    public class ConverterListViewToGenerateEnable : IValueConverter
+    {
+        /// <summary>
+        /// 转换函数
+        /// </summary>
+        /// <param name="value">值</param>
+        /// <param name="targetType">目标类型</param>
+        /// <param name="parameter">参数</param>
+        /// <param name="culture">本地化信息</param>
+        /// <returns>转换结果</returns>
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is ListView view)
+            {
+                foreach (SC2_FileListViewItem item in view.Items)
+                {
+                    if (item.SelectPathControl_FilePath.IsHaveSelected != true) return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 反向转回函数
+        /// </summary>
+        /// <param name="value">值</param>
+        /// <param name="targetType">目标类型</param>
+        /// <param name="parameter">参数</param>
+        /// <param name="culture">本地化信息</param>
+        /// <returns>转换结果</returns>
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return value;
+        }
     }
     #endregion
 }

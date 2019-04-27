@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:SC2_CombineData"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:WHLib_Toolkit.UIControl.Control;assembly=WHLib_Toolkit"
+    xmlns:sys="clr-namespace:System;assembly=System"
     Name="ListViewItem_Item"
     Margin="1"
     BorderBrush="LightGray"
@@ -19,5 +20,9 @@
         ContentMargin="1"
         Width="{Binding ElementName=ListViewItem_Item, Path=ItemWidth}"
         ButtonContent="选择"
+        ControlType="LoadFile"
+        Filter="XML|*.xml"
+        TitleDescription="数据文件"
+        TextChangeHandler="SelectPathControl_FilePath_TextChangeHandler"
         LabelContent="文件路径：" />
 </ListViewItem>
