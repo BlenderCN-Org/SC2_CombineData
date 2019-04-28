@@ -23,6 +23,6 @@
         ControlType="LoadFile"
         Filter="XML|*.xml"
         TitleDescription="数据文件"
-        TextChangeHandler="SelectPathControl_FilePath_TextChangeHandler"
+        IsPathExistHandler="SelectPathControl_FilePath_IsPathExistHandler"
         LabelContent="文件路径：" />
 </ListViewItem>

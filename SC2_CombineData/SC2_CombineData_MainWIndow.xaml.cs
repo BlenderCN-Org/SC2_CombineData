@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -217,7 +218,15 @@ namespace SC2_CombineData
             {
                 foreach (SC2_FileListViewItem item in view.Items)
                 {
-                    if (item.SelectPathControl_FilePath.IsHaveSelected != true) return false;
+                    if (item.SelectPathControl_FilePath.IsPathExist != true)
+                    {
+                        return false;
+                    }
+                    FileInfo file = item.SelectPathControl_FilePath.SelectedFile;
+                    if (file == null || file.Extension != ".xml")
+                    {
+                        return false;
+                    }
                 }
             }
             return true;

@@ -78,15 +78,15 @@ namespace SC2_CombineData
         }
 
         /// <summary>
-        /// 获得焦点事件
+        /// 路径存在变化事件
         /// </summary>
         /// <param name="sender">事件控件</param>
         /// <param name="e">响应参数</param>
-        private void SelectPathControl_FilePath_TextChangeHandler(object sender, RoutedEventArgs e)
+        private void SelectPathControl_FilePath_IsPathExistHandler(object sender, RoutedEventArgs e)
         {
-
+            SC2_CombineData_MainWindow.MainWindow.RefreshGenerateButton();
         }
-        #endregion
 
+        #endregion
     }
 }
