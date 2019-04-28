@@ -1,1 +1,4 @@
 
+[submodule "WHLib_Toolkit"]
+	path = WHLib_Toolkit
+	url = https://github.com/Whimsyduke/WHLib_Toolkit.git
