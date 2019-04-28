@@ -5,24 +5,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SC2_CombineData"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:toolkit="clr-namespace:WHLib_Toolkit.UIControl.Control;assembly=WHLib_Toolkit"
     xmlns:sys="clr-namespace:System;assembly=System"
+    xmlns:toolkit="clr-namespace:WHLib_Toolkit.UIControl.Control;assembly=WHLib_Toolkit"
     Name="ListViewItem_Item"
     Margin="1"
     BorderBrush="LightGray"
     BorderThickness="1"
     mc:Ignorable="d">
     <toolkit:WH_SelectPathControl
-        GotFocus="SelectPathControl_FilePath_GotFocus"
         Name="SelectPathControl_FilePath"
         Grid.Column="1"
-        TextVerticalAlignment="Center"
-        ContentMargin="1"
         Width="{Binding ElementName=ListViewItem_Item, Path=ItemWidth}"
         ButtonContent="选择"
+        ContentMargin="1"
         ControlType="LoadFile"
         Filter="XML|*.xml"
-        TitleDescription="数据文件"
+        GotFocus="SelectPathControl_FilePath_GotFocus"
         IsPathExistHandler="SelectPathControl_FilePath_IsPathExistHandler"
-        LabelContent="文件路径：" />
+        LabelContent="文件路径："
+        TextVerticalAlignment="Center"
+        TitleDescription="数据文件" />
 </ListViewItem>

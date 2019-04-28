@@ -11,8 +11,6 @@
     mc:Ignorable="d">
     <Window.Resources>
         <local:ConverterSelectItemToEnable_Delete x:Key="SelectItemToEnable_DeleteConverter" />
-        <local:ConverterSelectIndexToEnable_Up x:Key="SelectIndexToEnable_UpConverter" />
-        <local:ConverterSelectIndexToEnable_Down x:Key="SelectIndexToEnable_DownConverter" />
         <local:ConverterListViewToGenerateEnable x:Key="ListViewToGenerateEnableConverter" />
     </Window.Resources>
     <Grid>
@@ -26,8 +24,6 @@
             Header="配置">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -46,26 +42,8 @@
                     Content="删除"
                     IsEnabled="{Binding ElementName=ListView_FileList, Path=SelectedItem, Converter={StaticResource SelectItemToEnable_DeleteConverter}}" />
                 <Button
-                    Name="Button_Up"
-                    Grid.Column="2"
-                    Margin="3"
-                    Content="上移"
-                    IsEnabled="{Binding ElementName=ListView_FileList, Path=SelectedIndex, Converter={StaticResource ResourceKey=SelectIndexToEnable_UpConverter}}" />
-                <Button
-                    Name="Button_Down"
-                    Grid.Column="3"
-                    Margin="3"
-                    Content="下移">
-                    <Button.IsEnabled>
-                        <MultiBinding Converter="{StaticResource SelectIndexToEnable_DownConverter}">
-                            <Binding ElementName="ListView_FileList"  Path="SelectedIndex"/>
-                            <Binding ElementName="ListView_FileList"/>
-                        </MultiBinding>
-                    </Button.IsEnabled>
-                </Button>
-                <Button
                     Name="Button_Generate"
-                    Grid.Column="4"
+                    Grid.Column="2"
                     IsEnabled="{Binding ElementName=ListView_FileList, Converter={StaticResource ListViewToGenerateEnableConverter}}"
                     Margin="3"
                     Content="生成" />

@@ -43,15 +43,6 @@ namespace SC2_CombineData
         #region 方法
 
         /// <summary>
-        /// 刷新移动按钮状态
-        /// </summary>
-        public void RefreshMoveButton()
-        {
-            Button_Up.GetBindingExpression(Button.IsEnabledProperty).UpdateTarget();
-            BindingOperations.GetMultiBindingExpression(Button_Down, Button.IsEnabledProperty).UpdateTarget();
-        }
-
-        /// <summary>
         /// 刷新生成按钮状态
         /// </summary>
         public void RefreshGenerateButton()
@@ -76,12 +67,10 @@ namespace SC2_CombineData
             };
             item.SetBinding(SC2_FileListViewItem.ItemWidthProperty, binding);
             ListView_FileList.Items.Add(item);
-            RefreshMoveButton();
         }
 
-
         /// <summary>
-        /// 获得焦点事件
+        /// 删除按钮点击事件
         /// </summary>
         /// <param name="sender">事件控件</param>
         /// <param name="e">响应参数</param>
@@ -92,10 +81,29 @@ namespace SC2_CombineData
             {
                 ListView_FileList.Items.Remove(item);
             }
-            RefreshMoveButton();
+        }
+        
+        /// <summary>
+        /// 上移按钮点击事件
+        /// </summary>
+        /// <param name="sender">事件控件</param>
+        /// <param name="e">响应参数</param>
+        private void Button_Up_Click(object sender, RoutedEventArgs e)
+        {
+            ListView_FileList.Items.MoveCurrentToPosition(ListView_FileList.SelectedIndex - 1);
         }
 
+        /// <summary>
+        /// 下移按钮点击事件
+        /// </summary>
+        /// <param name="sender">事件控件</param>
+        /// <param name="e">响应参数</param>
+        private void Button_Down_Click(object sender, RoutedEventArgs e)
+        {
+            ListView_FileList.Items.MoveCurrentToPosition(ListView_FileList.SelectedIndex + 1);
+        }
         #endregion
+
     }
 
     #region Converter
@@ -130,73 +138,6 @@ namespace SC2_CombineData
         {
             return value;
         }
-
-    }
-
-    /// <summary>
-    /// 选择序号到上移下移可用性转换器
-    /// </summary>
-    public class ConverterSelectIndexToEnable_Up : IValueConverter
-    {
-        /// <summary>
-        /// 转换函数
-        /// </summary>
-        /// <param name="value">值</param>
-        /// <param name="targetType">目标类型</param>
-        /// <param name="parameter">参数</param>
-        /// <param name="culture">本地化信息</param>
-        /// <returns>转换结果</returns>
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return ((int)value > 0);
-        }
-
-        /// <summary>
-        /// 反向转回函数
-        /// </summary>
-        /// <param name="value">值</param>
-        /// <param name="targetType">目标类型</param>
-        /// <param name="parameter">参数</param>
-        /// <param name="culture">本地化信息</param>
-        /// <returns>转换结果</returns>
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return value;
-        }
-    }
-
-    /// <summary>
-    /// 选择序号到上移下移可用性转换器
-    /// </summary>
-    public class ConverterSelectIndexToEnable_Down : IMultiValueConverter
-    {
-        /// <summary>
-        /// 转换函数
-        /// </summary>
-        /// <param name="values">值数组</param>
-        /// <param name="targetType">目标类型</param>
-        /// <param name="parameter">参数</param>
-        /// <param name="culture">本地化</param>
-        /// <returns>转换结果</returns>
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
-        {
-            ListView view = values[1] as ListView;
-            return (int)values[0] < view.Items.Count - 1;
-        }
-
-        /// <summary>
-        /// 逆向转换函数
-        /// </summary>
-        /// <param name="value">值数组</param>
-        /// <param name="targetTypes">目标类型</param>
-        /// <param name="parameter">参数</param>
-        /// <param name="culture">本地化</param>
-        /// <returns>转换结果</returns>
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
-        {
-            return null;
-        }
-
     }
 
     /// <summary>
