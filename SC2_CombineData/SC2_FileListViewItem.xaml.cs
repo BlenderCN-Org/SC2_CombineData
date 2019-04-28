@@ -63,6 +63,22 @@ namespace SC2_CombineData
             SelectPathControl_FilePath.DefaultDirectory = Environment.CurrentDirectory;
         }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="path">路径</param>
+        public SC2_FileListViewItem(string path)
+        {
+            InitializeComponent();
+            ItemWidth = this.Width;
+            SelectPathControl_FilePath.DefaultDirectory = Environment.CurrentDirectory;
+            Binding binding = new Binding("ActualWidth")
+            {
+                ElementName = "ListView_FileList"
+            };
+            SetBinding(SC2_FileListViewItem.ItemWidthProperty, binding);
+            PathText = path;
+        }
         #endregion
 
         #region 控件事件

@@ -29,12 +29,38 @@ namespace SC2_CombineData
         public const string Const_Extension = ".xml";
         public const string Const_XMLRootName = "Catalog";
         public const string Const_XMLIDName = "id";
-
+        public const string Const_CMD_PATH = "-Path";
+        public const string Const_CMD_NAME = "-Name";
+        public readonly List<string> Const_ModPath = new List<string>()
+        {
+             @"\Mods\Core.Mod\Base.Data\GameData\",
+             @"\Mods\Liberty.SC2Mod\Base.SC2Data\GameData\",
+             @"\Campaigns\Liberty.SC2Campaign\Base.SC2Data\GameData\",
+             @"\Mods\Swarm.SC2Mod\Base.SC2Data\GameData\",
+             @"\Campaigns\Swarm.SC2Campaign\Base.SC2Data\GameData\",
+             @"\Mods\Void.SC2Mod\Base.SC2Data\GameData\",
+             @"\Campaigns\Void.SC2Campaign\Base.SC2Data\GameData\",
+             @"\Mods\NovaStoryAssets.SC2Mod\Base.SC2Data\GameData\",
+        };
         #endregion
 
         #region 属性字段
 
+        /// <summary>
+        /// 主窗口
+        /// </summary>
         public static SC2_CombineData_MainWindow MainWindow { set; get; }
+
+        /// <summary>
+        /// Mod基本路径
+        /// </summary>
+        public string InitBasePath { set; get; } = Environment.CurrentDirectory;
+
+        /// <summary>
+        /// Mod基本文件名
+        /// </summary>
+        public string InitFileName { set; get; } = @"ModelData.xml";
+
         #endregion
 
         #region 构造函数
@@ -44,13 +70,38 @@ namespace SC2_CombineData
         /// </summary>
         public SC2_CombineData_MainWindow()
         {
+            CheckSoftwareArgs();
             MainWindow = this;
             InitializeComponent();
+            foreach(string path in Const_ModPath)
+            {
+                SC2_FileListViewItem item = new SC2_FileListViewItem($"{InitBasePath}{path}{InitFileName}");
+                ListView_FileList.Items.Add(item);
+            }
         }
 
         #endregion
 
         #region 方法
+
+        public void CheckSoftwareArgs()
+        {
+            string[] pargs = Environment.GetCommandLineArgs();
+            for (int i = 0; i < pargs.Length; i++)
+            {
+                switch (pargs[i])
+                {
+                    case Const_CMD_NAME:
+                        InitFileName = pargs[++i];
+                        break;
+                    case Const_CMD_PATH:
+                        InitBasePath = pargs[++i];
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
 
         /// <summary>
         /// 刷新生成按钮状态
@@ -151,7 +202,7 @@ namespace SC2_CombineData
                             existComments = dictComment[id];
                             foreach (XComment comment in comments)
                             {
-                                if (existComments.Where(r=> r.Value == comment.Value).Count() ==0)
+                                if (existComments.Where(r => r.Value == comment.Value).Count() == 0)
                                 {
                                     tempComment = new XComment(comment);
                                     existElement.AddBeforeSelf(tempComment);
@@ -191,12 +242,7 @@ namespace SC2_CombineData
         /// <param name="e">响应参数</param>
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
-            SC2_FileListViewItem item = new SC2_FileListViewItem();
-            Binding binding = new Binding("ActualWidth")
-            {
-                ElementName = "ListView_FileList"
-            };
-            item.SetBinding(SC2_FileListViewItem.ItemWidthProperty, binding);
+            SC2_FileListViewItem item = new SC2_FileListViewItem("");
             ListView_FileList.Items.Add(item);
         }
 
@@ -213,7 +259,7 @@ namespace SC2_CombineData
                 ListView_FileList.Items.Remove(item);
             }
         }
-        
+
         /// <summary>
         /// 生成按钮点击事件
         /// </summary>
@@ -224,10 +270,10 @@ namespace SC2_CombineData
             GenerateCombineData();
         }
 
-#endregion
+        #endregion
     }
 
-#region Converter
+    #region Converter
 
     /// <summary>
     /// 选择项到删除按钮可用转换器
@@ -310,5 +356,5 @@ namespace SC2_CombineData
             return value;
         }
     }
-#endregion
+    #endregion
 }

@@ -60,8 +60,6 @@
                 Padding="-12,0"
                 BorderThickness="0"
                 SelectedIndex="0">
-                <local:SC2_FileListViewItem ItemWidth="{Binding ElementName=ListView_FileList, Path=ActualWidth}" PathText="C:\Users\hwu.c\Documents\Code\OtherSource\SC2_CombineData\TestXml\ModelData1.xml"/>
-                <local:SC2_FileListViewItem ItemWidth="{Binding ElementName=ListView_FileList, Path=ActualWidth}" PathText="C:\Users\hwu.c\Documents\Code\OtherSource\SC2_CombineData\TestXml\ModelData2.xml"/>
             </ListView>
         </GroupBox>
     </Grid>
