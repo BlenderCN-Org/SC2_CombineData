@@ -1,0 +1,1830 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CModel id="Adept">
+        <Model value="Assets\Units\Protoss\Adept\Adept.m3"/>
+        <RequiredAnims value="Character\Adept\NanaKey_Animation_Adept_Walk.m3a"/>
+        <RequiredAnims value="Character\Adept\NanaKey_Animation_Adept_StandWork.m3a"/>
+        <OptionalAnims value="Character\Adept\NanaKey_Animation_Adept_Walk.m3a"/>
+        <OptionalAnims value="Character\Adept\NanaKey_Animation_Adept_StandWork.m3a"/>
+    </CModel>
+    <CModel id="AdeptDeath">
+        <Model value="Assets\Units\Protoss\Adept_Death\Adept_Death.m3"/>
+    </CModel>
+    <CModel id="AiurTree">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="AiurTree_Grouped">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_City_CreepWebbing">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_City_CreepWebbing_Large">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_CliffRocks">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Overgrowth">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Puddle">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Rock_Cliff_Jungle">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Rock_Cliff_Jungle_Chunks">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Stone_Temple_Shrine">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Temple_Archway">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Temple_Pillars">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Trees_Log">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Trees_Log_Small">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Zerg_Bridge">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Zerg_GlowingPods">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Zerg_Horn">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Zerg_Intestines">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Zerg_Ribs">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Aiur_Zerg_Tower">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="AmericanFlagDeath">
+        <Model value="Misc\SCU_USA_flag.m3"/>
+    </CModel>
+    <CModel id="AmonTentacleB">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="AmonTentacleC">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="AmonUmbraSpireEpilogue03">
+        <Flags index="VariationFallback" value="0"/>
+        <!--Model value="Assets\Doodads\SpaceTentacle\SpaceTentacle.m3"/>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="NydusSpace_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="NydusSpace_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Space02_MetalCrash"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Space02_MetalCrash"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,A"/>
+            <Name value="NydusSpace_BirthA"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="NydusSpace_BirthA"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,A"/>
+            <Name value="Space02_MetalCrash"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Space02_MetalCrash"/>
+        </Events>
+        <Events>
+            <Anim value="Spell,A"/>
+            <Name value="NydusSpace_SpellA"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="NydusSpace_SpellA"/>
+        </Events>
+        <Events>
+            <Anim value="Spell,A"/>
+            <Name value="Space02_MetalCrash"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Space02_MetalCrash"/>
+        </Events>
+        <PlanetPanelCamera value="Star2CameraLow15"/>
+        <SquibTypeDefault value="Flesh"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/-->
+    </CModel>
+    <CModel id="BanelingEx1DeathSmall" parent="UnitDeath">
+        <Model value="Assets\Units\Zerg\BanelingEx1Death\BanelingEx1Death.m3"/>
+        <LowQualityModel value="BanelingDeathLow"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Occlusion value="Show"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="BelShirCanopyTreeIsland">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="BelShirCanopyTrees">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="BelShirFoliage">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="BelShirFoliageDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="BelShirTree">
+        <Flags index="VariationFallback" value="0"/>
+        <!-- Random sample data to show how this stuff works.
+        <Variations>
+            <Number value="3"/>
+            <Radius value="1"/>
+            <RadiusLoose value="2"/>
+        </Variations>
+        <Radius value="2"/>
+        <RadiusLoose value="3"/>
+    -->
+    </CModel>
+    <CModel id="BelShirTreeDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="BillboardDestroyed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Blast_Craters_Big_Fixed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Blast_Craters_Fixed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ChengSeHuoYanLaunch">
+        <Model value="Assets\Effects\Protoss\Arbiter_Purifier_Coop_Missile_Launch\Arbiter_Purifier_Coop_Missile_Launch.m3"/>
+    </CModel>
+    <CModel id="ChengSeHuoYanMissile">
+        <Model value="Assets\Effects\Protoss\Arbiter_Purifier_Coop_Missile\Arbiter_Purifier_Coop_Missile.m3"/>
+    </CModel>
+    <CModel id="CivilianDeath" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Terran\ColonistMale\ColonistMale.m3"/>
+        <RequiredAnims value="Assets\Units\Terran\ColonistMaleAnim\ColonistMaleAnim.m3a"/>
+        <Events>
+            <Anim value="Custom,Ready,End,00"/>
+            <Name value="CivilianDeath"/>
+            <Type value="Sound"/>
+            <Time value="8.200000"/>
+            <Payload value="CivilianDeath"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <Radius value="0.250000"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+        <SelectionRadius value="0.250000"/>
+        <ShadowRadius value="0.250000"/>
+        <TextureAppliedGroups value="male"/>
+        <TextureDeclares Prefix="Colonist_Main"/>
+        <TextureMatchesForEditor Slot="main.normal" Source="main"/>
+        <VariationCount value="3"/>
+        <Variations Probability="1">
+            <TextureExpressionsForEditor Slot="main" Expression="RequireAll diffuse,male"/>
+        </Variations>
+        <Variations Probability="1">
+            <TextureExpressionsForEditor Slot="main" Expression="RequireAll diffuse; RequireAny helmet,backpack"/>
+        </Variations>
+        <Variations Probability="1">
+            <TextureExpressionsForEditor Slot="main" Expression="RequireAll diffuse,helmet"/>
+        </Variations>
+    </CModel>
+    <CModel id="CivilianFemaleDeath" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Terran\ColonistFemale\ColonistFemale.m3"/>
+        <RequiredAnims value="Assets\Units\Terran\ColonistFemale_RequiredAnims\ColonistFemale_RequiredAnims.m3a"/>
+        <Occlusion value="Show"/>
+        <Radius value="0.250000"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+        <SelectionRadius value="0.250000"/>
+        <ShadowRadius value="0.250000"/>
+        <TextureDeclares Prefix="colonist_female">
+            <Adaptions TriggerOnSubstring="colonist_female" Slot="main"/>
+        </TextureDeclares>
+        <TextureMatchesForEditor Slot="main.normal" Source="main"/>
+        <VariationCount value="3"/>
+        <Variations Probability="1">
+            <TextureExpressionsForEditor Slot="main" Expression="RequireAll diffuse"/>
+        </Variations>
+    </CModel>
+    <CModel id="D8ClusterBombDeath" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Terran\MagneticMine\MagneticMine.m3"/>
+        <LowQualityModel value="D8ClusterBombLow"/>
+        <Lighting value="D8ClusterBomb"/>
+        <ScaleMax value="0.600000,0.600000,0.600000"/>
+        <ScaleMin value="0.600000,0.600000,0.600000"/>
+        <SelectionLayer value="3"/>
+    </CModel>
+    <CModel id="DOMLabDoorThin">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOMLabDoorThinAirlockWind">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOMLabDoorWide">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOMLabDoorWideAirlockWind">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_Corridor">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_Crate">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_Ground_Grate">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_HybridCapsule">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_LabConsoles">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_LabTestingFacility">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_LabVehicleFacility">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_MonitorLabDestructible">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_RoboArm_Large">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_Table_WarRoom">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_VentTower">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_Walls_Interior_Fixed_Long3">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DOM_Walls_Interior_Fixed_Long5">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DaXingPaoDanYuan">
+        <Model value="Assets\Effects\Terran\Mutator_Splitter_Missile\Mutator_Splitter_Missile.m3"/>
+    </CModel>
+    <CModel id="DaXingPaoDanJian">
+        <Model value="Assets\Effects\Terran\Mutator_Standard_Missile\Mutator_Standard_Missile.m3"/>
+    </CModel>
+    <CModel id="DaXingPaoDanLong">
+        <Model value="Assets\Effects\Terran\Mutator_Nuke_Missile\Mutator_Nuke_Missile.m3"/>
+    </CModel>
+    <CModel id="DaXingZhangYuChuShouDeath">
+        <Model value="Monsters\NanaKey_TO_Leviathan_Tentacle.m3"/>
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="DaXingZhangYuDeath">
+        <Model value="Monsters\NanaKey_TO_Leviathan.m3"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="DarkZealot">
+        <TextureDeclares index="0" Prefix="zealot_">
+            <Adaptions TriggerOnSubstring="normal.dds" Slot="main.normal"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="DefensiveWall45OneThirdDoodad">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DefensiveWall45OuterDoodad">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DehakaDeath">
+        <Model value="Assets\Units\Zerg\Dehaka\Dehaka.m3"/>
+    </CModel>
+    <CModel id="DesertPlanetSearchlight">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="DestroyedNydusWorm">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Dog">
+        <TextureDeclares Prefix="dog_" Slot="main">
+            <Adaptions TriggerOnSubstring="diffuse.dds" Slot="main"/>
+        </TextureDeclares>
+    </CModel>
+    <CModelFoliage id="DynamicGrassBelShir">
+        <Flags index="VariationFallback" value="0"/>
+    </CModelFoliage>
+    <CModel id="Egg">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Elsecaro_Jet_Ski">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ErWuZaiMarine">
+        <Model value="Assets\Units\Terran\DOM_Grunt\DOM_Grunt.m3"/>
+        <RequiredAnims value="Character\DOM_Grunt\NanaKey_DOM_Grunt_RequiredAnimation.m3a"/>
+        <OptionalAnims value="Character\DOM_Grunt\NanaKey_DOM_Grunt_RequiredAnimation.m3a"/>
+    </CModel>
+    <CModel id="ErWuZaiMarineDeath">
+        <Model value="Assets\Units\Terran\DOM_Grunt_Death\DOM_Grunt_Death.m3"/>
+    </CModel>
+    <CModel id="FanVentCliff">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="FireSuppressionBots">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="FirebatPortrait">
+        <Image value="Portrait\NanaKey_UI_dominionmarauderportrait_static.dds"/>
+    </CModel>
+    <CModel id="FlameTurret">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="FrogKey_BackGround">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="FrogKey_TO_DeepSeaTurtle">
+        <ScaleMax value="3.000000,3.000000,3.000000"/>
+        <ScaleMin value="3.000000,3.000000,3.000000"/>
+    </CModel>
+    <CModel id="FrogKey_TO_DeepSeaTurtleDeath">
+        <Model value="Misc\FrogKey_TO_DeepSeaTurtle.m3"/>
+        <ScaleMax value="3.000000,3.000000,3.000000"/>
+        <ScaleMin value="3.000000,3.000000,3.000000"/>
+        <VariationCount value="4"/>
+    </CModel>
+    <CModel id="FrogKey_TO_SharkDeath">
+        <Model value="Misc\FrogKey_TO_Shark.m3"/>
+    </CModel>
+    <CModel id="FrogKey_WP_navalmine">
+        <ScaleMax value="3.000000,3.000000,3.000000"/>
+        <ScaleMin value="3.000000,3.000000,3.000000"/>
+    </CModel>
+    <CModel id="FrogWeapon01">
+        <Model value="Weapon\nanaweapon01.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon02">
+        <Model value="Weapon\nanaweapon02.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon03">
+        <Model value="Weapon\nanaweapon03.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon04">
+        <Model value="Weapon\nanaweapon04.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon05">
+        <Model value="Weapon\nanaweapon05.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon06">
+        <Model value="Weapon\nanaweapon06.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon07">
+        <Model value="Weapon\nanaweapon07.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon08">
+        <Model value="Weapon\nanaweapon08.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon09">
+        <Model value="Weapon\nanaweapon09.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon10">
+        <Model value="Weapon\nanaweapon10.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon11">
+        <Model value="Weapon\nanaweapon11.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon12">
+        <Model value="Weapon\nanaweapon12.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon13">
+        <Model value="Weapon\nanaweapon13.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon14">
+        <Model value="Weapon\nanaweapon14.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon15">
+        <Model value="Weapon\nanaweapon15.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon16">
+        <Model value="Weapon\nanaweapon16.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon17">
+        <Model value="Weapon\nanaweapon17.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon18">
+        <Model value="Weapon\nanaweapon18.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon19">
+        <Model value="Weapon\nanaweapon19.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon20">
+        <Model value="Weapon\nanaweapon20.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon21">
+        <Model value="Weapon\nanaweapon21.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon22">
+        <Model value="Weapon\nanaweapon22.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon23">
+        <Model value="Weapon\nanaweapon23.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon24">
+        <Model value="Weapon\nanaweapon24.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon25">
+        <Model value="Weapon\nanaweapon25.m3"/>
+    </CModel>
+    <CModel id="FrogWeapon26">
+        <Model value="Weapon\nanaweapon26.m3"/>
+    </CModel>
+    <CModel id="GhostPortrait">
+        <Image value="Portrait\NanaKey_UI_BrettWoodportrait_static.dds"/>
+    </CModel>
+    <CModel id="Ghost_BlzBrettWoodNew_Weapon2">
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Blink.m3a"/>
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Walk.m3a"/>
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_Drive.m3a"/>
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_StandReady.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Blink.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Walk.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_Drive.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_StandReady.m3a"/>
+        <ScaleMax value="1.250000,1.250000,1.250000"/>
+        <ScaleMin value="1.250000,1.250000,1.250000"/>
+    </CModel>
+    <CModel id="Ghost_BlzBrettWoodNew_Weapon3">
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Blink.m3a"/>
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Walk.m3a"/>
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_Drive.m3a"/>
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_StandReady.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Blink.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Walk.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_Drive.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_StandReady.m3a"/>
+        <ScaleMax value="1.250000,1.250000,1.250000"/>
+        <ScaleMin value="1.250000,1.250000,1.250000"/>
+    </CModel>
+    <CModel id="Ghost_BlzMember_DavidKim_Viking_Hum">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="GlueIntroDropShip">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="GoliathMercenaryPortrait">
+        <Image value="Portrait\NanaKey_UI_Dustinportrait_static.dds"/>
+    </CModel>
+    <CModel id="HangTianFeiJiDeath">
+        <Model value="Misc\NanaKey_BG_Shuttle.m3"/>
+    </CModel>
+    <CModel id="HealthDispenser">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Hellion">
+        <TextureDeclares Prefix="helliontank_">
+            <Adaptions TriggerOnSubstring="diff.dds" Slot="main"/>
+            <Adaptions TriggerOnSubstring="norm.dds" Slot="main.normal"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="HuiMieShouWei"/>
+    <CModel id="HunterDeathSmall" parent="UnitDeath">
+        <Model value="Assets\Units\Zerg\BanelingEx1BDeath\BanelingEx1BDeath.m3"/>
+        <LowQualityModel value="HunterDeathLow"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Occlusion value="Show"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="Hydralisk">
+        <Flags index="VariationFallback" value="0"/>
+        <TextureDeclares Prefix="hydralisk_">
+            <Adaptions TriggerOnSubstring="diffuse_blood.dds" Slot="main"/>
+            <Adaptions TriggerOnSubstring="normal.dds" Slot="main.normal"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="Impaler">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="InfestedCivilian">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="InfestedCivilianDeathFire">
+        <Flags index="TeenSafe" value="1"/>
+    </CModel>
+    <CModel id="InfestedStukov">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="InfestedStukovDeath">
+        <Model value="Assets\Units\Zerg\InfestedStukov\InfestedStukov.m3"/>
+    </CModel>
+    <CModel id="InfestedTerran">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="InfestedTerranCampaign">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Infestor">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="JiuTouSheDeath">
+        <Model value="Monsters\NanaKey_TO_Hydra.m3"/>
+    </CModel>
+    <CModel id="JunTanZhongLiu">
+        <Model value="Assets\Buildings\Zerg\CreepTumor\CreepTumor.m3"/>
+        <Events>
+            <Anim value="Cover,Spell,Start,00"/>
+            <Name value="MisslePop"/>
+            <Type value="Sound"/>
+            <Time value="0.300000"/>
+            <Payload value="CreepTumor_MisslePop"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Morph,End,00"/>
+            <Name value="Pop"/>
+            <Type value="Sound"/>
+            <Time value="0.720000"/>
+            <Payload value="CreepTumor_MisslePop"/>
+        </Events>
+        <Events>
+            <Anim value="Cover,Start,00"/>
+            <Name value="NewEmergeSlime"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="CreepTumor_NewEmergeSlime"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Morph,End,00"/>
+            <Name value="Slime"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="CreepTumor_NewEmergeSlime"/>
+        </Events>
+        <Events>
+            <Anim value="Cover,Spell,Start,00"/>
+            <Name value="MisslePop"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="CreepTumor_MisslePop"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Morph,Start,00"/>
+            <Name value="Grow"/>
+            <Type value="Sound"/>
+            <Time value="0.720000"/>
+            <Payload value="CreepTumor_NewEmergeSlime"/>
+        </Events>
+        <Events>
+            <Anim value="Cover,Start,00"/>
+            <Name value="NewEmerge"/>
+            <Type value="Sound"/>
+            <Time value="0.620000"/>
+            <Payload value="CreepTumor_NewEmerge"/>
+        </Events>
+        <Events>
+            <Anim value="Cover,Start,00"/>
+            <Name value="Flarp"/>
+            <Type value="Sound"/>
+            <Time value="0.930000"/>
+            <Payload value="CreepTumor_PlaceFlarp"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Morph,End,00"/>
+            <Name value="Emerge"/>
+            <Type value="Sound"/>
+            <Time value="0.320000"/>
+            <Payload value="CreepTumor_NewEmerge"/>
+        </Events>
+    </CModel>
+    <CModel id="KongTouWuPin">
+        <Model value="Assets\Units\Terran\Griffin_BombRun_COOP\Griffin_BombRun_COOP.m3"/>
+    </CModel>
+    <CModel id="KongTouWuPinImpact">
+        <Model value="Assets\Effects\Terran\Griffin_BombRun_Impact_COOP\Griffin_BombRun_Impact_COOP.m3"/>
+    </CModel>
+    <CModel id="KongTouWuPinLaunch">
+        <Model value="Assets\Effects\Terran\Griffin_BombRun_Launch\Griffin_BombRun_Launch.m3"/>
+    </CModel>
+    <CModel id="KorhalArtifactContainmentField">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalBuildingDebris">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalBuildingWreckedSmall">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalGate">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalGateControl">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalGateControlDeath">
+        <Flags index="VariationFallback" value="0"/>
+        <!--VariationCount value="2"/-->
+    </CModel>
+    <CModel id="KorhalGateDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalMart">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalOverpass">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalPalaceTurret">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalPalaceTurretLeft">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalPalaceTurretLeftDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalPalaceTurretRight">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalPalaceTurretRightDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalSkyboxHorizon">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="KorhalStreet_Props">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_BuildingsMedium_Destroyed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_ConstructionCranes">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_ConstructionCranes_Destroyed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_EMP_Structures">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_FuelTank">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_FuelTank_Destroyed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_GuardTower">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Mart_Destroyed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_MengskBuildings">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_MengskBuildingsDestroyed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_PerimeterWall">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_BurntEdgePieces">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_CliffStructures">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_CliffTower">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_Debris">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_GrimeSplats">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_Hatches">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_LandingLights">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_OilMarks">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_PlateWall">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_Post">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_ReentryCloudsBig">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_Road_Corner_Diagonal">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_Road_Corner_Straight">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_Road_Diagonal">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_Road_EndCap">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_Road_Roundabout">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_Road_Straight">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_SkyshieldEmblem">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Platform_TireMarks">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Residential_Building">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Residential_Building_Destroyed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_Runway"/>
+    <CModel id="Korhal_Skyscrapers_Cliff_Destroyed">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_SpacePort_BigPlane">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_SpacePort_Container">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_SpacePort_ControlTower">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_SpacePort_SmallPlane">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Korhal_SpacePort_Terminal">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="LandingLights">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="LvMaoRenFemale">
+        <Model value="Assets\Units\Terran\BeachGirl\BeachGirl.m3"/>
+        <RequiredAnims value="Character\BeachMale\NanaKey_TO_ColonistMale_Attack_Animation.m3a"/>
+        <RequiredAnims value="Character\BeachMale\NanaKey_TO_ColonistMale_Base_Animation.m3a"/>
+        <RequiredAnims value="Character\BeachMale\NanaKey_TO_ColonistMale_Walk_Animation.m3a"/>
+        <VariationCount value="7"/>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="LvMaoRenMale">
+        <Model value="Assets\Units\Terran\BeachMale\BeachMale.m3"/>
+        <RequiredAnims value="Character\BeachMale\NanaKey_TO_ColonistMale_Attack_Animation.m3a"/>
+        <RequiredAnims value="Character\BeachMale\NanaKey_TO_ColonistMale_Base_Animation.m3a"/>
+        <RequiredAnims value="Character\BeachMale\NanaKey_TO_ColonistMale_Walk_Animation.m3a"/>
+        <Events>
+            <Anim value="Custom,Ready,End,00"/>
+            <Name value="CivilianDeath"/>
+            <Type value="Sound"/>
+            <Time value="8.200000"/>
+            <Payload value="CivilianDeath"/>
+        </Events>
+        <VariationCount value="5"/>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="MarSaraCactus">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="MarSaraFoliage">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Marauder_Dustin_Hammer">
+        <RequiredAnims value="Character\Dustin\Animations\Marauder_Dustin_Hammer_Drive.m3a"/>
+        <OptionalAnims value="Character\Dustin\Animations\Marauder_Dustin_Hammer_Drive.m3a"/>
+    </CModel>
+    <CModel id="MedicPortrait">
+        <Image value="Portrait\NanaKey_UI_medivac_merc_collection_static.dds"/>
+    </CModel>
+    <CModel id="MoebiusLabHornet">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="MoverAttributeTarget">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="MuZhuangModelHuman">
+        <Model value="Assets\Doodads\Tarsonis_TargetDummy\Tarsonis_TargetDummy_01.m3"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="MuZhuangModelZerg">
+        <Model value="Assets\Doodads\Tarsonis_TargetDummy\Tarsonis_TargetDummy_00.m3"/>
+    </CModel>
+    <CModel id="MurlocMarine">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_BG_StairsHelper05">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_BG_SuperTerrain_Layer00LightAccepter">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_BG_SuperTerrain_Layer02">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_BG_SuperTerrain_Layersolid00">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_BG_TankmodeStealsDeath">
+        <Model value="NanaKey_Terrain\NanaKey_BG_TankmodeSteals.m3"/>
+    </CModel>
+    <CModel id="NanaKey_BG_TankmodeWallsDeath">
+        <Model value="NanaKey_Terrain\NanaKey_BG_TankmodeWalls.m3"/>
+    </CModel>
+    <CModel id="NanaKey_Camera_Attacher2_10m">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_EF_Damage_Spark2x">
+        <Model value="NanaKeyEffects\Particles\NanaKey_EF_Damage_Spark.m3"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="NanaKey_EF_IfieldDeath">
+        <Model value="NanaKeyEffects\Particles\NanaKey_EF_Ifield.m3"/>
+        <Lighting value="NanaKey_EF_Ifield"/>
+    </CModel>
+    <CModel id="NanaKey_EF_PulseLaser_Impact_BlueLarge">
+        <Model value="NanaKeyEffects\Particles\NanaKey_EF_PulseLaser_Impact_Blue.m3"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_EF_PulseLaser_Impact_GreenLarge">
+        <Model value="NanaKeyEffects\Particles\NanaKey_EF_PulseLaser_Impact_Green.m3"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_EF_PulseLaser_Impact_YellowLarge">
+        <Model value="NanaKeyEffects\Particles\NanaKey_EF_PulseLaser_Impact_Yellow.m3"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_EF_Scorch_FuelAirDeath">
+        <Model value="NanaKeyEffects\Particles\NanaKey_EF_Scorch_FuelAir.m3"/>
+    </CModel>
+    <CModel id="NanaKey_EF_cartridge case">
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="NanaKey_GlobalMapChooseV02">
+        <Flags index="ForcePortraitModel" value="1"/>
+    </CModel>
+    <CModel id="NanaKey_Item_ammunitionbox_Big">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_Item_ammunitionbox_Middle">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_A10">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_BlackOPsSCV">
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+        <RequiredAnims value="Character\BlackOPsSCV\Animations\NanaKey_TO_BlackOPsSCV_Drive.m3a"/>
+    </CModel>
+    <CModel id="NanaKey_TO_CanSuit">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_CanSuit_Death">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_FCSMarine_02">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_F_18E">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_L2A6">
+        <ScaleMax value="3.000000,3.000000,3.000000"/>
+        <ScaleMin value="3.000000,3.000000,3.000000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_L2A6Death">
+        <Model value="USArmy\NanaKey_TO_L2A6.m3"/>
+        <ScaleMax value="3.000000,3.000000,3.000000"/>
+        <ScaleMin value="3.000000,3.000000,3.000000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_LavaBaneling_DeathSmall">
+        <Model value="Monsters\NanaKey_TO_LavaBaneling_Death.m3"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Leviathan">
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_LittledogBirth">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Littledog_Death">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_MarauderDustinShoulder">
+        <RequiredAnims value="Character\Scorch\NanaKey_TO_Scorch_Walk.m3a"/>
+        <RequiredAnims value="Character\Scorch\NanaKey_TO_Scorch_Drive.m3a"/>
+        <RequiredAnims value="Character\Scorch\NanaKey_TO_Scorch_Standwork.m3a"/>
+        <OptionalAnims value="Character\Scorch\NanaKey_TO_Scorch_Walk.m3a"/>
+        <OptionalAnims value="Character\Scorch\NanaKey_TO_Scorch_Drive.m3a"/>
+        <OptionalAnims value="Character\Scorch\NanaKey_TO_Scorch_Standwork.m3a"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Playercabinet">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RageComicMask">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Base">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Base_Death">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Desolator">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Desolator_Death">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Melee">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Melee_Death">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Sniper">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Sniper_Death">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Tesla">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Tesla_Death">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Viper">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_RoboMarine_Viper_Death">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Seahorse_BlueDeath">
+        <Model value="Misc\NanaKey_TO_Seahorse_Blue.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Seahorse_GreenDeath">
+        <Model value="Misc\NanaKey_TO_Seahorse_Green.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Seahorse_OrangeDeath">
+        <Model value="Misc\NanaKey_TO_Seahorse_Orange.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Seahorse_PurpleDeath">
+        <Model value="Misc\NanaKey_TO_Seahorse_Purple.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_T90ms">
+        <ScaleMax value="3.000000,3.000000,3.000000"/>
+        <ScaleMin value="3.000000,3.000000,3.000000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_T90msDeath">
+        <ScaleMax value="3.000000,3.000000,3.000000"/>
+        <ScaleMin value="3.000000,3.000000,3.000000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_TempleStatueZealot">
+        <RequiredAnims value="IngamemodelAnimation\NanaKey_TO_TempleStatueZealot_Animation.m3a"/>
+        <OptionalAnims value="IngamemodelAnimation\NanaKey_TO_TempleStatueZealot_Animation.m3a"/>
+        <TextureDeclares Prefix="stonecolossus_">
+            <Adaptions TriggerOnSubstring="diff.dds" Slot="main"/>
+        </TextureDeclares>
+        <TextureDeclares Prefix="stonecolossus_">
+            <Adaptions TriggerOnSubstring="emiss.dds" Slot="main.emissive"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="NanaKey_TO_Zeratul">
+        <RequiredAnims value="Character\Zeratul\NanaKey_TO_Zeratul_Drive.m3a"/>
+        <OptionalAnims value="Character\Zeratul\NanaKey_TO_Zeratul_Drive.m3a"/>
+    </CModel>
+    <CModel id="NanaKey_TO_murloc">
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+        <RequiredAnims value="Monsters\NanaKey_TO_murloc_Drive.m3a"/>
+    </CModel>
+    <CModel id="NanaKey_TO_murlocDeath">
+        <Model value="Monsters\NanaKey_TO_murloc.m3"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_murlocblue">
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+        <RequiredAnims value="Monsters\NanaKey_TO_murloc_Drive.m3a"/>
+        <TextureDeclares>
+            <Adaptions TriggerOnSubstring="SahauginskinBlue.dds" Slot="main"/>
+            <Adaptions TriggerOnSubstring="SahauginskinBlue_Norm.dds" Slot="main.normal"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="NanaKey_TO_murlocblueDeath">
+        <Model value="Monsters\NanaKey_TO_murlocblue.m3"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_murlocdeep">
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+        <RequiredAnims value="Monsters\NanaKey_TO_murlocdeep_Drive.m3a"/>
+    </CModel>
+    <CModel id="NanaKey_TO_murlocdeepDeath">
+        <Model value="Monsters\NanaKey_TO_murlocdeep.m3"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="NanaKey_UI_Stairs_PlatformsTerran_part02">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_UI_Upgradepanel_V2">
+        <Flags index="ForcePortraitModel" value="1"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Lighting value="MarinePortrait"/>
+    </CModel>
+    <CModel id="Netease_NanaKey_TO_SpaceShutter">
+        <Events>
+            <Anim value="Walk"/>
+            <Name value="FlySound"/>
+            <Type value="Sound"/>
+            <Attachment value="Ref_Origin"/>
+            <Payload value="Sentry_GuardianShieldLoop"/>
+        </Events>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Netease_NanaKey_TO_SpaceShutter_Death">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NovaResupplyCrate">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NydusBeast">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="PitAlarak">
+        <RequiredAnims value="Character\Alarak\NanaKey_Alarak_COOP_RequestAnimation.m3a"/>
+        <RequiredAnims value="Character\Alarak\NanaKey_Alarak_COOP_RequestAnimation_Drive.m3a"/>
+    </CModel>
+    <CModel id="PitAlarakDeath" parent="Unit" Race="Protoss">
+        <Model value="Assets\Units\Protoss\Alarak\Alarak.m3"/>
+        <Events>
+            <Anim value="Hover,End"/>
+            <Name value="PitAlarak_FallToDeath"/>
+            <Type value="Sound"/>
+            <Time value="0.490000"/>
+            <Payload value="PitAlarak_FallToDeath"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="PitAlarak_Strong_Beam">
+        <RadiusLoose value="50.000000"/>
+    </CModel>
+    <CModel id="Portrait_HuangXuDong" parent="Portrait">
+        <Model value="Assets\Portraits\Terran\Marine1Portrait\Marine1Portrait.m3"/>
+        <EditorCategories value=""/>
+        <Image value="Assets\Textures\NanaKey_huangxdportrait_static.dds"/>
+    </CModel>
+    <CModel id="Portrait_F91" parent="Portrait">
+        <Model value="Assets\Portraits\Terran\Marine1Portrait\Marine1Portrait.m3"/>
+        <EditorCategories value=""/>
+        <Image value="Assets\Textures\NanaKey_Sunyifengportrait_static.dds"/>
+    </CModel>
+    <CModel id="ProtossWarpInPadFlat">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="RanXueDeJiSiDaoEffect">
+        <Model value="Assets\Effects\Neutral\HardenedWill_Shield\HardenedWill_Shield.m3"/>
+    </CModel>
+    <CModel id="RaynorMarinePortrait">
+        <Image value="Portrait\NanaKey_UI_MikeMorhaimeportrait_static.dds"/>
+    </CModel>
+    <CModel id="RaynorMarinePortrait3D">
+        <Image value="Portrait\NanaKey_UI_MikeMorhaimeportrait_static.dds"/>
+    </CModel>
+    <CModel id="RedstoneTree">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Reentry_Fire">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="RenWuMuBiaoHaloModel">
+        <Model value="NanaKeyEffects\Buff\NanaKey_EF_embraveAura.m3"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+    </CModel>
+    <CModel id="NanaKey_EF_lavapathDeath">
+        <Model value="NanaKeyEffects\Particles\NanaKey_EF_lavapath.m3"/>
+    </CModel>
+    <CModel id="NanaKey_EF_rockwall_Group01Death">
+        <Model value="NanaKeyEffects\Particles\NanaKey_EF_rockwall_Group01.m3"/>
+    </CModel>
+    <CModel id="NanaKey_Item_ammunitionbox_Small">
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Anser">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_CamelMountDeath">
+        <Model value="Misc\NanaKey_TO_CamelMount.m3"/>
+        <Lighting value="NanaKey_TO_CamelMount"/>
+    </CModel>
+    <CModel id="NanaKey_TO_CaptainBlizzard_unarmedMiddleQuTeamColor">
+        <TextureDeclares Prefix="marineraynorhero_" Slot="main">
+            <Adaptions TriggerOnSubstring="diff.dds" Slot="main"/>
+        </TextureDeclares>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_ReloadandChangeWeapon.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_ReloadandChangeWeapon.m3a"/>
+    </CModel>
+    <CModel id="NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQu">
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_ReloadandChangeWeapon.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_OrcAnimationPack_Onehand.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_OrcAnimationPack_TwoHands.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQuAnimationDrive.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_ArthasAnimationPack.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQuAnimationShield.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQuAnimationShieldWalk.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_ReloadandChangeWeapon.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_OrcAnimationPack_Onehand.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_OrcAnimationPack_TwoHands.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQuAnimationDrive.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_ArthasAnimationPack.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQuAnimationShield.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQuAnimationShieldWalk.m3a"/>
+        <TextureDeclares Prefix="NanaKeyTO_" Slot="main">
+            <Adaptions TriggerOnSubstring="CapBlizmarineraynorhero_diff.dds" Slot="main"/>
+        </TextureDeclares>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQuDeath">
+        <Model value="Character\MikeMorhaime\NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQu.m3"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_ReloadandChangeWeapon.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_OrcAnimationPack_Onehand.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_OrcAnimationPack_TwoHands.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQuAnimationDrive.m3a"/>
+        <RequiredAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_ArthasAnimationPack.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_ReloadandChangeWeapon.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_OrcAnimationPack_Onehand.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_OrcAnimationPack_TwoHands.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQuAnimationDrive.m3a"/>
+        <OptionalAnims value="Character\MikeMorhaime\Animations\NanaKey_TO_CaptainBlizzard_ArthasAnimationPack.m3a"/>
+        <Lighting value="NanaKey_TO_CaptainBlizzardskin_unarmedMiddleQu"/>
+        <TextureDeclares Prefix="NanaKeyTO_" Slot="main">
+            <Adaptions TriggerOnSubstring="CapBlizmarineraynorhero_diff.dds" Slot="main"/>
+        </TextureDeclares>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_DavidKimRebirth_VikingHUMDeath">
+        <Model value="Character\DavidKim\NanaKey_TO_DavidKimRebirth_VikingHUM.m3"/>
+        <Lighting value="NanaKey_TO_DavidKimRebirth_VikingHUM"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Gamon_HD">
+        <RequiredAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Walk.m3a"/>
+        <RequiredAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Drive.m3a"/>
+        <RequiredAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations.m3a"/>
+        <RequiredAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Spell16.m3a"/>
+        <OptionalAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Walk.m3a"/>
+        <OptionalAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Drive.m3a"/>
+        <OptionalAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations.m3a"/>
+        <OptionalAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Spell16.m3a"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+        <TextureDeclares Prefix="NanaKey_TO_Gamon_">
+            <Adaptions TriggerOnSubstring="HD_def.dds" Slot="main"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="NanaKey_TO_Gamon_HDDeath">
+        <Model value="Character\Gamon\NanaKey_TO_Gamon_HD.m3"/>
+        <RequiredAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Walk.m3a"/>
+        <RequiredAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Drive.m3a"/>
+        <RequiredAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations.m3a"/>
+        <OptionalAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Walk.m3a"/>
+        <OptionalAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations_Drive.m3a"/>
+        <OptionalAnims value="Character\Gamon\NanaKey_TO_Gamon_HD_Animations.m3a"/>
+        <Lighting value="NanaKey_TO_Gamon_HD"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Ghost_BlzBrettWoodNew_Weapon">
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Blink.m3a"/>
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Walk.m3a"/>
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_Drive.m3a"/>
+        <RequiredAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_StandReady.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Blink.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Animation_Walk.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_Drive.m3a"/>
+        <OptionalAnims value="Character\BrettWood\Ghost_BlzBrettWoodNew_Weapon3_StandReady.m3a"/>
+        <ScaleMax value="1.250000,1.250000,1.250000"/>
+        <ScaleMin value="1.250000,1.250000,1.250000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Ghost_BlzBrettWoodNew_WeaponDeath">
+        <Model value="Character\BrettWood\NanaKey_TO_Ghost_BlzBrettWoodNew_Weapon.m3"/>
+        <ScaleMax value="1.250000,1.250000,1.250000"/>
+        <ScaleMin value="1.250000,1.250000,1.250000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Loki">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_O2Station">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Protectivefence">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Scorch">
+        <RequiredAnims value="Character\Scorch\NanaKey_TO_Scorch_Walk.m3a"/>
+        <RequiredAnims value="Character\Scorch\NanaKey_TO_Scorch_Drive.m3a"/>
+        <RequiredAnims value="Character\Scorch\NanaKey_TO_Scorch_Standwork.m3a"/>
+        <OptionalAnims value="Character\Scorch\NanaKey_TO_Scorch_Walk.m3a"/>
+        <OptionalAnims value="Character\Scorch\NanaKey_TO_Scorch_Drive.m3a"/>
+        <OptionalAnims value="Character\Scorch\NanaKey_TO_Scorch_Standwork.m3a"/>
+        <TextureDeclares Prefix="firebat_diffuse">
+            <Adaptions TriggerOnSubstring=".dds" Slot="main"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="NanaKey_TO_Scout">
+        <ScaleMax value="0.600000,0.600000,0.600000"/>
+        <ScaleMin value="0.600000,0.600000,0.600000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_ScoutDeath">
+        <ScaleMax value="0.600000,0.600000,0.600000"/>
+        <ScaleMin value="0.600000,0.600000,0.600000"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_FemaleA">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_FemaleADeath">
+        <Model value="Monsters\NanaKey_TO_Zombie_FemaleA.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_FemaleBDeath">
+        <Model value="Monsters\NanaKey_TO_Zombie_FemaleB.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_FemaleCDeath">
+        <Model value="Monsters\NanaKey_TO_Zombie_FemaleC.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_FemaleDDeath">
+        <Model value="Monsters\NanaKey_TO_Zombie_FemaleD.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_maleA">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_maleADeath">
+        <Model value="Monsters\NanaKey_TO_Zombie_maleA.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_maleBDeath">
+        <Model value="Monsters\NanaKey_TO_Zombie_maleB.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_maleCDeath">
+        <Model value="Monsters\NanaKey_TO_Zombie_maleC.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_Zombie_maleDDeath">
+        <Model value="Monsters\NanaKey_TO_Zombie_maleD.m3"/>
+    </CModel>
+    <CModel id="NanaKey_TO_strikeShipDeath">
+        <Model value="Spaceships\NanaKey_TO_strikeShip.m3"/>
+    </CModel>
+    <CModel id="NanaKey_UI_BriefingRoom">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_UI_Dialog_AreaSplat">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_UI_Heropick_Starmap">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_UI_Pointstandard">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="NanaKey_WP_MikeMorhaime_MachineGun">
+        <TextureDeclares Prefix="riffles_" Slot="main">
+            <Adaptions TriggerOnSubstring="diff.dds" Slot="main"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="NanaKey_WP_Weaponfoundation">
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="NeuralParasiteModel">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Overseer">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Protoss_Base_Screens">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="PsiDecimator">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="PsiDecimatorDamageModel">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="PsiDecimatorDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="PsiDecimatorWave">
+        <Flags index="VariationFallback" value="0"/>
+        <Flags index="VariationPreload" value="1"/>
+    </CModel>
+    <CModel id="Roach">
+        <Flags index="VariationFallback" value="0"/>
+        <TextureDeclares Prefix="roach_">
+            <Adaptions TriggerOnSubstring="diffuse.dds" Slot="main"/>
+            <Adaptions TriggerOnSubstring="normal.dds" Slot="main.normal"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="RoachDeathAcid">
+        <Flags index="TeenSafe" value="1"/>
+    </CModel>
+    <CModel id="RoachDeathFire">
+        <Flags index="TeenSafe" value="1"/>
+    </CModel>
+    <CModel id="RoachDeathRagdoll">
+        <Flags index="Download" value="1"/>
+        <Flags index="PreventedWhenPhysicsPerformanceConstrained" value="0"/>
+        <Flags index="RequiresPhysicsToOperate" value="0"/>
+    </CModel>
+    <CModel id="RockVolcanicGiant">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="RooftopSolarPanels">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SCVBunkerTurret">
+        <Model value="Assets\Buildings\Terran\BunkerShrikeTurret\BunkerShrikeTurret.m3"/>
+    </CModel>
+    <CModel id="SJSpaceStationValerian">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SJSpaceStationValerianAttackImpact">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SJSpaceStationValerianDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SJSpaceStationValerianWeapon">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SMHyperionArmorer">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SMHyperionArmoryViking">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Scientist">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ScientistOfficer">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ShaDai1">
+        <Model value="Assets\Doodads\NewFolsomSandbags\NewFolsomSandbags_00.m3"/>
+        <Radius value="0.600000"/>
+    </CModel>
+    <CModel id="ShaDai2">
+        <Model value="Assets\Doodads\NewFolsomSandbags\NewFolsomSandbags_01.m3"/>
+        <Radius value="0.600000"/>
+    </CModel>
+    <CModel id="ShaDai3">
+        <Model value="Assets\Doodads\NewFolsomSandbags\NewFolsomSandbags_02.m3"/>
+        <Radius value="0.600000"/>
+    </CModel>
+    <CModel id="ShadowScrambler">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ShadowScramblerDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ShadowScramblerField">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Shadow_CliffEdges">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Shadow_Hybrid_Cannon">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Shadow_Platform_Military_ModularCliff">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Shadow_SpacePlatform_MissileTurret">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Shadow_SpacePlatform_MissileTurretPassive">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Shadow_Tower_Buildings">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Shakuras_TallGrass_Windy">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ShiXiangHuiMieZheFire">
+        <Model value="Assets\Effects\Neutral\GenericFire_Large_Coop\GenericFire_Large_Coop.m3"/>
+    </CModel>
+    <CModel id="ShiXiangHuiMieZheFireSmall">
+        <Model value="Assets\Effects\Neutral\GroundFire_Coop\GroundFire_Coop.m3"/>
+    </CModel>
+    <CModel id="ShiYanShiMen" parent="Doodad">
+        <Model value="Assets\Doodads\UmojanLabDoorsThin\UmojanLabDoorsThin.m3"/>
+    </CModel>
+    <CModel id="ShiYanShiMen_Destroyed" parent="Doodad">
+        <Model value="Assets\Doodads\UmojanLabDoorsThin\UmojanLabDoorsThin.m3"/>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Doodad_UmojanLabDoorsThin_StandUnpoweredEnd"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Doodad_UmojanLabDoorsThin_StandUnpoweredEnd"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Doodad_UmojanLabDoorsThin_StandUnpoweredStart"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Doodad_UmojanLabDoorsThin_StandUnpoweredStart"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="UmojanLabDoorsThin_Open"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="UmojanLabDoorsThin_Open"/>
+        </Events>
+    </CModel>
+    <CModel id="ShiYanShiMenWidth" parent="Doodad">
+        <Model value="Assets\Doodads\UmojanLabDoorsThin\UmojanLabDoorsThin.m3"/>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Doodad_UmojanLabDoorsThin_StandUnpoweredEnd"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Doodad_UmojanLabDoorsThin_StandUnpoweredEnd"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Doodad_UmojanLabDoorsThin_StandUnpoweredStart"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Doodad_UmojanLabDoorsThin_StandUnpoweredStart"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="UmojanLabDoorsThin_Open"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="UmojanLabDoorsThin_Open"/>
+        </Events>
+    </CModel>
+    <CModel id="SkyTank">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SnowRefinery_Terran_ConstructionCranes">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SpaceArmoredGenerator">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SpaceArmoredGeneratorDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SpaceDockEngineSmall">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SpaceElevatorRamp">
+        <Flags index="DynamicZChanger" value="0"/>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SpaceMineralFormation1Doodad">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SpacePlatformCablesLargeZerged">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SpacePlatformRockFormationLarge">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SpacePlatform_MissileTurretPassive">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SpaceVentDestructible">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Spire">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="StoneDeath">
+        <Model value="USArmy\USMarauder\NanaKey_TO_USMarauder.m3"/>
+    </CModel>
+    <CModel id="StoneJuXingDaoDan">
+        <Model value="NanaKeyEffects\Missiles\NanaKey_TO_NukeMissile.m3"/>
+        <ScaleMax value="5.000000,2.000000,5.000000"/>
+        <ScaleMin value="5.000000,2.000000,5.000000"/>
+    </CModel>
+    <CModel id="StoreFrontCityProps">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="SwarmQueen">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="TTosh01Lavafall">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="TTosh01LavafallLow">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="TaiKongGongChengChe">
+        <Model value="Assets\Units\Terran\SCVFusionWelder\SCVFusionWelder.m3"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+        <RequiredAnims value="Character\BlackOPsSCV\Animations\NanaKey_TO_BlackOPsSCV_Drive.m3a"/>
+    </CModel>
+    <CModel id="TaiKongGongChengCheDeath">
+        <Model value="Assets\Units\Terran\SCV_Merc_Collection_Death\SCV_Merc_Collection_Death.m3"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="TankBattleTopLevel1">
+        <Model value="Assets\Units\Terran\TankEx1\TankEx1.m3"/>
+        <RequiredAnims value="IngamemodelAnimation\NanaKey_Anim_SiegeTank_Hide.m3a"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CModel id="TankBattleTopLevel2">
+        <Model value="Assets\Units\Terran\SiegeTank_BlackOps_Tank\SiegeTank_BlackOps_Tank.m3"/>
+        <RequiredAnims value="IngamemodelAnimation\NanaKey_Anim_SiegeTank_Hide.m3a"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CModel id="TankBattleTopLevel3">
+        <Model value="Assets\Units\Terran\TankMercenary\TankMercenary.m3"/>
+        <RequiredAnims value="IngamemodelAnimation\NanaKey_Anim_SiegeTank_Hide.m3a"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CModel id="TempleWall45">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="TestHuoShenLaunch">
+        <Model value="Assets\Models\NanaKey_EF_MOAB\NanaKey_EF_MOAB_PrtMdl_Boom.m3"/>
+    </CModel>
+    <CModel id="TheVoid_RockPointy">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabAlarms">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabCellTable">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabCrates">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabDissectionTable">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabDoorsThin">
+        <Flags index="VariationFallback" value="0"/>
+        <!-- <Events>
+            <Anim value="Stand,Unpowered,00"/>
+            <Name value="UmojanLabDoorsThin_Open"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="UmojanLabDoorsThin_Open"/>
+        </Events> -->
+    </CModel>
+    <CModel id="UmojanLabDoorsThinDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabDoorsWide">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabFloodLights">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabFloodLightsDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabGenerator">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabHoloProjector">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabHoloProjectorDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabHoloProjectorUnit">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabKerriganCell">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabKerriganDoor">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabPowerCell">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabPowerCellDeath">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabPowerConduit">
+        <Events index="0" removed="1"/>
+        <Events index="1" removed="1"/>
+        <Events index="2" removed="1"/>
+        <Events index="3" removed="1"/>
+        <Events index="4" removed="1"/>
+        <Events index="5" removed="1"/>
+        <Events index="6" removed="1"/>
+        <Events index="7" removed="1"/>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UmojanLabViewingDeck">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="UnkNanaKey_BG_SuperTerrain_Creep">
+        <Model value="Assets\Units\Test\InvisibleUnit\InvisibleUnit.m3"/>
+    </CModel>
+    <CModel id="UtilityBot">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ValhallaBaseDoorDoodad">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ValhallaThorConstruction">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Virophage">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="VoidThrasherGroundSkirt">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="VoidThrasherLightningAoEIndicatorSplat">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Void_CliffRocks_Edge">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Void_Cliff_Rocks">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Void_Skybox">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Void_Temple_Small">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="Void_XelNaga_Structure">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="WH_EnemySoldier_InfestedAbomination">
+        <Flags index="VariationFallback" value="0"/>
+        <TextureDeclares Prefix="thanson02baneling_">
+            <Adaptions TriggerOnSubstring="diffuse.dds" Slot="main"/>
+            <Adaptions TriggerOnSubstring="normal.dds" Slot="main.normal"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="WH_EnemySoldier_Type1XLabBot">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="WH_Hero_SingleWarHound_NanaKey_TO_MercCommander">
+        <RequiredAnims value="Character\MercCommander\NanaKey_TO_MercCommander_Animation.m3a"/>
+        <RequiredAnims value="Character\MercCommander\NanaKey_TO_MercCommander_Drive.m3a"/>
+    </CModel>
+    <CModel id="WarpInVoid">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="WreckedSandbags">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="WuRanYuan">
+        <Model value="Assets\Doodads\Aiur_Zerg_Tower\Aiur_Zerg_Tower_00.m3"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="XilFossils">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="XilTree">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="XuKongSiLieZheDeath">
+        <Model value="Assets\Units\Zerg\Void_Thrasher\Void_Thrasher.m3"/>
+    </CModel>
+    <CModel id="XuKongXianXueMissile">
+        <Model value="Assets\Effects\Protoss\Alarak_COOP_Sacrifice_Missile\Alarak_COOP_Sacrifice_Missile.m3"/>
+    </CModel>
+    <CModel id="XuKongXuanWoHongJiRight">
+        <Model value="Assets\Effects\Protoss\Alarak_COOP_Sacrifice_Impact\Alarak_COOP_Sacrifice_Impact.m3"/>
+    </CModel>
+    <CModel id="PingMianDaXingBaoZha">
+        <Model value="Assets\Effects\Protoss\AmonShards_Orange_AnimaShower_Missile_Impact\AmonShards_Orange_AnimaShower_Missile_Impact.m3"/>
+    </CModel>
+    <CModel id="XukongHuiMieZheBossBeam">
+        <Model value="Assets\Effects\Protoss\Tempest_TalDarim_GroundBeam\Tempest_TalDarim_GroundBeam.m3"/>
+    </CModel>
+    <CModel id="YuRenJiaTeLinJiQiang">
+        <Model value="Weapon\NanaKey_WP_GatlingGun.m3"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="YuRenJieLveZheDeath">
+        <Model value="Monsters\NanaKey_TO_Marauder_Murloc.m3"/>
+    </CModel>
+    <CModel id="YunShi">
+        <Model value="Assets\Skyboxes\CharSkyParallax\CharSkyParallax_PrtMdl_Group01.m3"/>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ZealotPortrait">
+        <Image value="Portrait\NanaKey_UI_taldarimzealotportrait_static.dds"/>
+    </CModel>
+    <CModel id="ZergCarcasses"/>
+    <CModel id="ZergCarcassesMedium">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ZerglingUpgrade">
+        <TextureDeclares Prefix="zergling_">
+            <Adaptions TriggerOnSubstring="diffuse.dds" Slot="main"/>
+            <Adaptions TriggerOnSubstring="normal.dds" Slot="main.normal"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="ZerusGroundVines">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ZerusLavaGroundCrack">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="ZerusWaterPlant">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="dianjifangkuai1000">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="dianjifangkuai500">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="dianjifangkuai5000">
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel id="VoidFireMedium">
+        <Model value="Assets\Effects\Neutral\GenericFire_Medium_Coop\GenericFire_Medium_Coop.m3"/>
+    </CModel>
+    <CModel id="VoidMaterialBirth">
+        <Model value="Assets\Effects\Glaze\Glaze_Alarak_COOP_Sacrifice\Glaze_Alarak_COOP_Sacrifice.m3"/>
+    </CModel>
+</Catalog>

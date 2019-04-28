@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CSound id="BulletReload">
+        <AssetArray File="Sound\Nanakey_Sound_Reload.ogg" FacialGroup=""/>
+        <Volume value="-10.000000,-10.000000"/>
+        <Category value="Combat"/>
+    </CSound>
+    <CSound id="GOGOGO">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes04.ogg" FacialAnim="Marine_Yes04"/>
+    </CSound>
+    <CSound id="GunFireSound">
+        <AssetArray File="Sound\Nanakey_Sound_GunFire.ogg" FacialGroup=""/>
+        <Category value="Combat"/>
+        <Volume value="-8.570000,-8.570000"/>
+    </CSound>
+    <CSound id="GunFireSoundAWP">
+        <AssetArray File="Sound\Nanakey_Sound_GunFireAWP.ogg" FacialGroup=""/>
+        <Category value="Combat"/>
+        <Volume value="-4.930000,-4.930000"/>
+    </CSound>
+    <CSound id="ImmortalEnTaroAdun">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Attack02.ogg"/>
+    </CSound>
+    <CSound id="JiQiangYinXiao">
+        <AssetArray File="Sound\NanaKey_LaunchFX_Machinegunshoot.ogg" FacialGroup=""/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="SCVFightSoundPoTianZuan">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Pissed04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Attack01.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="WuDouJiaGamonJinZhanSound">
+        <AssetArray File="Assets\Sounds\Artanis_voxEffort1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Artanis_voxEffort2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Artanis_voxEffort3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Artanis_voxEffort4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Artanis_voxEffort5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Artanis_voxEffort6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Artanis_voxEffort7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Artanis_voxEffort8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Artanis_voxEffort9.wav" FacialGroup=""/>
+        <Category value="Combat"/>
+    </CSound>
+    <CSound id="WuDoujiaGamonChongJiBoChargeSound" parent="Ambience_Object">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\Shakuras_LaunchBay_Ship_Rise01.wav" Volume="6.000000,6.000000" FacialGroup=""/>
+        <Category value="Spell"/>
+        <Volume value="6.000000,6.000000"/>
+    </CSound>
+    <CSound id="WuDouJiaGamonXuQiSound" parent="Combat">
+        <AssetArray File="Assets\Sounds\Kerr_CelestialBeam_Lp_04.wav" LoopCount="-1" FacialGroup=""/>
+        <Category value="Spell"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="SC1DKLaunch">
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="SC1HydraliskLaunch">
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="SC1LurkerLaunch">
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="SC1MinigunLaunch">
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="SC1MinigunLaunch2">
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="SC1MutaliskLaunch">
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="SC1TAMissileLaunch">
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="SC1TankLaunch">
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="SC1TankSiegeLaunch">
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="YoKaBoom">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Ready00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="YuRenShenYin">
+        <AssetArray File="Assets\Sounds\mMurlocAttackA.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\mMurlocAttackB.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\mMurlocAttackC.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\mMurlocWoundA.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\mMurlocWoundB.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\mMurlocWoundC.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\mMurlocAggroA.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\mMurlocAggroB.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="YuRenShenYinSuper">
+        <AssetArray File="Assets\Sounds\mMurlocAggroOld.wav" FacialGroup=""/>
+    </CSound>
+</Catalog>

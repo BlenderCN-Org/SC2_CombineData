@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace SC2_CombineData
 {
@@ -22,9 +23,17 @@ namespace SC2_CombineData
     /// </summary>
     public partial class SC2_CombineData_MainWindow : Window
     {
+        #region 声明
+
+        public const string Const_Extension = ".xml";
+        public const string Const_XMLRootName = "Catalog";
+        public const string Const_XMLIDName = "id";
+
+        #endregion
+
         #region 属性字段
 
-       public static SC2_CombineData_MainWindow MainWindow { set; get; }
+        public static SC2_CombineData_MainWindow MainWindow { set; get; }
         #endregion
 
         #region 构造函数
@@ -49,6 +58,122 @@ namespace SC2_CombineData
         {
             Button_Generate.GetBindingExpression(Button.IsEnabledProperty).UpdateTarget();
         }
+
+        /// <summary>
+        /// 生成合并数据
+        /// </summary>
+        public void GenerateCombineData()
+        {
+            List<XDocument> docs = new List<XDocument>();
+            Dictionary<string, XElement> dictElement = new Dictionary<string, XElement>();
+            Dictionary<string, List<XComment>> dictComment = new Dictionary<string, List<XComment>>();
+            XElement existElement;
+            XAttribute existAttribut;
+            List<XComment> existComments;
+            XComment tempComment;
+            FileInfo file = null;
+#if !DEBUG
+            try
+#endif
+            {
+                foreach (SC2_FileListViewItem item in ListView_FileList.Items)
+                {
+                    file = item.SelectPathControl_FilePath.SelectedFile;
+                    XDocument doc = XDocument.Load(file.FullName);
+                    docs.Add(doc);
+                }
+
+            }
+#if !DEBUG
+            catch (Exception error)
+            {
+                string msg = file == null ? "" : $"错误文件:{file.FullName}\r\n";
+                msg += error.Message;
+                MessageBox.Show(msg);
+            }
+#endif
+            XDocument result = new XDocument
+            {
+                Declaration = docs[0].Declaration
+            };
+            XElement resultRoot = new XElement(Const_XMLRootName);
+            result.Add(resultRoot);
+
+            foreach (XDocument xml in docs)
+            {
+                XElement root = xml.Element(Const_XMLRootName);
+                if (root == null) continue;
+
+                // 数据实体
+                foreach (XElement element in root.Elements())
+                {
+                    string id = element.Attribute(Const_XMLIDName)?.Value;
+                    if (string.IsNullOrEmpty(id)) continue;
+                    if (dictElement.ContainsKey(id))
+                    {
+                        existElement = dictElement[id];
+                        existElement.Add(element.Elements());
+
+                        // 数据属性
+                        foreach (XAttribute attribute in element.Attributes())
+                        {
+                            existAttribut = existElement.Attribute(attribute.Name);
+                            if (existAttribut == null)
+                            {
+                                existElement.Add(attribute);
+                            }
+                            else
+                            {
+                                existAttribut.Value = attribute.Value;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        existElement = new XElement(element);
+                        dictElement[id] = existElement;
+                        resultRoot.Add(existElement);
+                    }
+
+                    // 注释
+                    List<XComment> comments = new List<XComment>();
+                    XNode node = element.PreviousNode;
+                    while (node != null && node is XComment comment)
+                    {
+                        comments.Insert(0, comment);
+                        node = node.PreviousNode;
+                    }
+                    if (comments.Count != 0)
+                    {
+                        if (dictComment.ContainsKey(id))
+                        {
+                            existComments = dictComment[id];
+                            foreach (XComment comment in comments)
+                            {
+                                if (existComments.Where(r=> r.Value == comment.Value).Count() ==0)
+                                {
+                                    tempComment = new XComment(comment);
+                                    existElement.AddBeforeSelf(tempComment);
+                                    existComments.Add(tempComment);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            dictComment[id] = new List<XComment>();
+                            foreach (XComment comment in comments)
+                            {
+                                tempComment = new XComment(comment);
+                                existElement.AddBeforeSelf(tempComment);
+                                dictComment[id].Add(tempComment);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
         #endregion
 
         #region 控件事件
@@ -84,29 +209,19 @@ namespace SC2_CombineData
         }
         
         /// <summary>
-        /// 上移按钮点击事件
+        /// 生成按钮点击事件
         /// </summary>
         /// <param name="sender">事件控件</param>
         /// <param name="e">响应参数</param>
-        private void Button_Up_Click(object sender, RoutedEventArgs e)
+        private void Button_Generate_Click(object sender, RoutedEventArgs e)
         {
-            ListView_FileList.Items.MoveCurrentToPosition(ListView_FileList.SelectedIndex - 1);
+            GenerateCombineData();
         }
 
-        /// <summary>
-        /// 下移按钮点击事件
-        /// </summary>
-        /// <param name="sender">事件控件</param>
-        /// <param name="e">响应参数</param>
-        private void Button_Down_Click(object sender, RoutedEventArgs e)
-        {
-            ListView_FileList.Items.MoveCurrentToPosition(ListView_FileList.SelectedIndex + 1);
-        }
-        #endregion
-
+#endregion
     }
 
-    #region Converter
+#region Converter
 
     /// <summary>
     /// 选择项到删除按钮可用转换器
@@ -157,16 +272,19 @@ namespace SC2_CombineData
         {
             if (value is ListView view)
             {
-                foreach (SC2_FileListViewItem item in view.Items)
+                foreach (object select in view.Items)
                 {
-                    if (item.SelectPathControl_FilePath.IsPathExist != true)
+                    if (select is SC2_FileListViewItem item)
                     {
-                        return false;
-                    }
-                    FileInfo file = item.SelectPathControl_FilePath.SelectedFile;
-                    if (file == null || file.Extension != ".xml")
-                    {
-                        return false;
+                        if (item.SelectPathControl_FilePath.IsPathExist != true)
+                        {
+                            return false;
+                        }
+                        FileInfo file = item.SelectPathControl_FilePath.SelectedFile;
+                        if (file == null || file.Extension != SC2_CombineData_MainWindow.Const_Extension)
+                        {
+                            return false;
+                        }
                     }
                 }
             }
@@ -186,5 +304,5 @@ namespace SC2_CombineData
             return value;
         }
     }
-    #endregion
+#endregion
 }

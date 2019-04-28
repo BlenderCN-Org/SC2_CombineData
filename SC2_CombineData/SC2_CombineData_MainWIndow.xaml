@@ -44,9 +44,10 @@
                 <Button
                     Name="Button_Generate"
                     Grid.Column="2"
-                    IsEnabled="{Binding ElementName=ListView_FileList, Converter={StaticResource ListViewToGenerateEnableConverter}}"
                     Margin="3"
-                    Content="生成" />
+                    Click="Button_Generate_Click"
+                    Content="生成"
+                    IsEnabled="{Binding ElementName=ListView_FileList, Converter={StaticResource ListViewToGenerateEnableConverter}}" />
             </Grid>
         </GroupBox>
         <GroupBox
@@ -57,9 +58,10 @@
                 Name="ListView_FileList"
                 Margin="10,0"
                 Padding="-12,0"
-                SelectedIndex="0"
-                BorderThickness="0">
-                <local:SC2_FileListViewItem ItemWidth="{Binding ElementName=ListView_FileList, Path=ActualWidth}" />
+                BorderThickness="0"
+                SelectedIndex="0">
+                <local:SC2_FileListViewItem ItemWidth="{Binding ElementName=ListView_FileList, Path=ActualWidth}" PathText="C:\Users\hwu.c\Documents\Code\OtherSource\SC2_CombineData\TestXml\ModelData1.xml"/>
+                <local:SC2_FileListViewItem ItemWidth="{Binding ElementName=ListView_FileList, Path=ActualWidth}" PathText="C:\Users\hwu.c\Documents\Code\OtherSource\SC2_CombineData\TestXml\ModelData2.xml"/>
             </ListView>
         </GroupBox>
     </Grid>

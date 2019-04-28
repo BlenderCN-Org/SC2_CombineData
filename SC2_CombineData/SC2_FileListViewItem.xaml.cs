@@ -33,7 +33,7 @@ namespace SC2_CombineData
         public string PathText
         {
             set { SelectPathControl_FilePath.PathText = value; SetValue(PathTextProperty, value); }
-            get { SetValue(PathTextProperty, SelectPathControl_FilePath.PathText); return (string)GetValue(PathTextProperty); }
+            get { return (string)GetValue(PathTextProperty); }
         }
 
         /// <summary>
