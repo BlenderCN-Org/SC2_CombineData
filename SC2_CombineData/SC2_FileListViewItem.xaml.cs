@@ -32,14 +32,14 @@ namespace SC2_CombineData
         /// </summary>
         public string PathText
         {
-            set { SelectPathControl_FilePath.PathText = value; SetValue(PathTextProperty, value); }
+            set { SetValue(PathTextProperty, value); }
             get { return (string)GetValue(PathTextProperty); }
         }
 
         /// <summary>
         /// 路径文本依赖项
         /// </summary>
-        public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register("ItemWidth", typeof(double), typeof(SC2_FileListViewItem));
+        public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register(nameof(ItemWidth), typeof(double), typeof(SC2_FileListViewItem));
         /// <summary>
         /// 路径文本属性
         /// </summary>
@@ -60,7 +60,7 @@ namespace SC2_CombineData
         {
             InitializeComponent();
             ItemWidth = this.Width;
-            SelectPathControl_FilePath.DefaultDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            SelectPathControl_FilePath.DefaultDirectory = Environment.CurrentDirectory;
         }
 
         #endregion

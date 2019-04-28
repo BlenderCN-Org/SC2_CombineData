@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using WHLib_Toolkit.CommonClass.CommonFunc;
 
 namespace SC2_CombineData
 {
@@ -170,6 +171,11 @@ namespace SC2_CombineData
                         }
                     }
                 }
+            }
+
+            if (WH_CommonFunc.SaveFilePathDialog(file.Directory.FullName, "XML|*.xml", "结果文件保存到", out System.Windows.Forms.SaveFileDialog saveFileDialog) == System.Windows.Forms.DialogResult.OK)
+            {
+                result.Save(saveFileDialog.FileName);
             }
         }
 

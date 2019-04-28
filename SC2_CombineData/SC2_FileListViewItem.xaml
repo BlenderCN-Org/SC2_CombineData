@@ -19,7 +19,7 @@
         ButtonContent="选择"
         ContentMargin="1"
         ControlType="LoadFile"
-        PathText="{Binding ElementName=ListViewItem_Item,Path=PathText}"
+        PathText="{Binding ElementName=ListViewItem_Item,Path=PathText,Mode=TwoWay}"
         Filter="XML|*.xml"
         GotFocus="SelectPathControl_FilePath_GotFocus"
         IsPathExistHandler="SelectPathControl_FilePath_IsPathExistHandler"
