@@ -19,11 +19,11 @@
         ButtonContent="选择"
         ContentMargin="1"
         ControlType="LoadFile"
-        PathText="{Binding ElementName=ListViewItem_Item,Path=PathText,Mode=TwoWay}"
         Filter="XML|*.xml"
         GotFocus="SelectPathControl_FilePath_GotFocus"
         IsPathExistHandler="SelectPathControl_FilePath_IsPathExistHandler"
         LabelContent="文件路径："
+        PathText="{Binding ElementName=ListViewItem_Item, Path=PathText, Mode=TwoWay}"
         TextVerticalAlignment="Center"
         TitleDescription="数据文件" />
 </ListViewItem>
