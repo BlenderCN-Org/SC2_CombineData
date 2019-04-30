@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace SC2_RegexFind
 {
@@ -22,6 +23,31 @@ namespace SC2_RegexFind
     /// </summary>
     public partial class SC2_RegexFind_MainWindow : Window
     {
+        #region 常量声明
+
+        public const string Const_NameID = "id";
+        public const string Const_NameParent = "parent";
+        public const string Const_NameToken = "token";
+        public static readonly Regex Const_RegexTokenID = new Regex("(?<=id=\")\\w*(?=\")", RegexOptions.Compiled);
+        public static readonly Regex Const_RegexTokenValue = new Regex("(?<=value=\")\\w*(?=\")", RegexOptions.Compiled);
+        public static readonly Regex Const_RegexTokenFormat = new Regex("##\\w*##", RegexOptions.Compiled);
+
+        #endregion
+
+        #region 属性字段
+
+        /// <summary>
+        /// 全部Token字典
+        /// </summary>
+        public static Dictionary<string, Dictionary<string, string>> DictTokenForElement { set; get; } = new Dictionary<string, Dictionary<string, string>>();
+
+        /// <summary>
+        /// 当前Token字典
+        /// </summary>
+        public static Dictionary<string, string> DictTokenCurrent { set; get; }
+
+        #endregion
+
         #region 构造寒地
 
         /// <summary>
@@ -35,6 +61,99 @@ namespace SC2_RegexFind
         #endregion
 
         #region 方法
+
+        /// <summary>
+        /// 转换Token
+        /// </summary>
+        /// <param name="match">匹配</param>
+        /// <returns>转换结果</returns>
+        public static string ConvertToken(Match match)
+        {
+            string id = match.Value.Substring(2, match.Value.Length - 4);
+            if (DictTokenCurrent.ContainsKey(id))
+            {
+                return DictTokenCurrent[id];
+            }
+            else
+            {
+                return match.Value;
+            }
+        }
+
+        /// <summary>
+        /// 移除属性token
+        /// </summary>
+        /// <param name="element">元素</param>
+        public static void RemoveAttributeToken(XElement element)
+        {
+            foreach (XAttribute attribute in element.Attributes())
+            {
+                string value = attribute.Value;
+                attribute.Value = Const_RegexTokenFormat.Replace(value, ConvertToken);
+            }
+            foreach (XElement childElement in element.Elements())
+            {
+                RemoveAttributeToken(childElement);
+            }
+        }
+
+        /// <summary>
+        /// 移除元素token
+        /// </summary>
+        /// <param name="element">元素</param>
+        public static void RemoveElementToken(XElement element)
+        {
+            string id = element.Attribute(Const_NameID).Value;
+            XAttribute parentAtt = element.Attribute("parent");
+            DictTokenCurrent = new Dictionary<string, string>();
+            if (parentAtt != null)
+            {
+                string parentID = parentAtt.Value;
+                foreach (KeyValuePair<string,string> select in DictTokenForElement[parentID])
+                {
+                    DictTokenCurrent[select.Key] = select.Value;
+                }
+            }
+            DictTokenCurrent[Const_NameID] = id;
+            XNode node = element.FirstNode;            
+            while (node != null)
+            {
+                XNode currentNode = node;
+                node = node.NextNode;
+                if (currentNode is XProcessingInstruction pi)
+                {
+                    if (pi.Target != Const_NameToken) continue;
+                    string tokenID = Const_RegexTokenID.Match(pi.Data).Value;
+                    string tokenValue = Const_RegexTokenValue.Match(pi.Data).Value;
+                    DictTokenCurrent[tokenID] = tokenValue;
+                    currentNode.Remove();
+                }
+            }
+            DictTokenForElement[id] = DictTokenCurrent;
+            foreach (XElement childElement in element.Elements())
+            {
+                RemoveAttributeToken(childElement);
+            }
+        }
+
+        /// <summary>
+        /// 获取去除Token的文本
+        /// </summary>
+        /// <param name="text">原始文本</param>
+        /// <returns>去除后文本</returns>
+        public static string GetRemoveTokenString(string text)
+        {
+            try
+            {
+                XDocument document = XDocument.Parse(text);
+                return null;
+            }
+            catch
+            {
+                return text;
+            }
+
+        }
 
         /// <summary>
         /// 生成正则表达式
@@ -87,6 +206,21 @@ namespace SC2_RegexFind
         #region 控件事件
 
         /// <summary>
+        /// 转换按钮点击事件
+        /// </summary>
+        /// <param name="sender">响应对象</param>
+        /// <param name="e">响应参数</param>
+        private void Button_Modify_Click(object sender, RoutedEventArgs e)
+        {
+            XDocument document = XDocument.Parse(TextEditor_SourceText.Text);
+            foreach (XElement element in document.Root.Elements())
+            {
+                RemoveElementToken(element);
+            }
+            TextEditor_SourceText.Text = document.ToString();
+        }
+
+        /// <summary>
         /// 搜索按钮点击事件
         /// </summary>
         /// <param name="sender">响应对象</param>
@@ -115,7 +249,6 @@ namespace SC2_RegexFind
         /// <param name="e">响应参数</param>
         private void Button_Compare_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         #endregion

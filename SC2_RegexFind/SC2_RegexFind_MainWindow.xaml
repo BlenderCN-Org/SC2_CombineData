@@ -34,21 +34,29 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBox
                     Name="TextBox_Regex"
                     Grid.Column="0"
                     Margin="3" />
                 <Button
-                    Name="Button_Search"
+                    Name="Button_Modify"
                     Grid.Column="1"
+                    Margin="3"
+                    Click="Button_Modify_Click"
+                    Content="转换"
+                    IsEnabled="{Binding ElementName=TextBox_Regex, Path=Text, Converter={StaticResource RegexPatternToGenerateEnableConverter}}" />
+                <Button
+                    Name="Button_Search"
+                    Grid.Column="2"
                     Margin="3"
                     Click="Button_Search_Click"
                     Content="搜索"
                     IsEnabled="{Binding ElementName=TextBox_Regex, Path=Text, Converter={StaticResource RegexPatternToGenerateEnableConverter}}" />
                 <Button
                     Name="Button_Compare"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="3"
                     Click="Button_Compare_Click"
                     Content="比较"

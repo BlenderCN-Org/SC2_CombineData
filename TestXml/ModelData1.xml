@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <!--Model value="Assets\Doodads\SpaceTentacle\SpaceTentacle.m3"/-->
-    <!--Model value="Assets\Doodads\SpaceTentacle\SpaceTentacle.m31"/-->
-    <!--Model value="Assets\Doodads\SpaceTentacle\SpaceTentacle.m32"/-->
-    <CModel id="Adept1"  parent="UnitDeath">
-        <Model value="Assets\Units\Protoss\Adept\Adept.m3"/>
-        <RequiredAnims value="Character\Adept\NanaKey_Animation_Adept_Walk.m3a"/>
-        <RequiredAnims value="Character\Adept\NanaKey_Animation_Adept_StandWork.m3a"/>
-        <OptionalAnims value="Character\Adept\NanaKey_Animation_Adept_Walk.m3a"/>
-        <OptionalAnims value="Character\Adept\NanaKey_Animation_Adept_StandWork.m3a"/>
-    </CModel>
-	<!--Model value="Assets\Doodads\SpaceTentacle\SpaceTentacle.m3"/-->
-    <CModel id="Adept2"  parent="UnitDeath">
-        <Model value="Assets\Units\Protoss\Adept\Adept.m3"/>
-        <RequiredAnims value="Character\Adept\NanaKey_Animation_Adept_Walk.m3a"/>
-        <RequiredAnims value="Character\Adept\NanaKey_Animation_Adept_StandWork.m3a"/>
-        <OptionalAnims value="Character\Adept\NanaKey_Animation_Adept_Walk.m3a"/>
-        <OptionalAnims value="Character\Adept\NanaKey_Animation_Adept_StandWork.m3a"/>
-    </CModel>
+  <CModel default="1" id="UnitDeath">
+    <?token id="Race" value="Neutral"?>
+    <?token id="Prefix" value="Portraits\"?>
+    <Flags index="Download" value="0" />
+    <Flags index="FOW" value="0" />
+    <Flags index="IgnoreAspectRatioScale" value="1" />
+    <EditorCategories value="Race:##Race##" />
+    <Image value="Assets\Textures\##id##_Static.dds" />
+    <Model value="Assets\##Prefix####Race##\##id##\##id##.m3" />
+    <Quality value="0" />
+    <AnimBlendTime value="0.500000" />
+    <Priority value="8" />
+    <PausedParticleSystemBehavior value="FreezeAll" />
+  </CModel>
+  <CModel default="1" id="StasisWardDeathBase" parent="UnitDeath">
+    <?token id="Race" value="Protoss"?>
+    <?token id="low" type="CModelLink" value="ProtossSmallUnitDeathLow"?>
+  </CModel>
 </Catalog>
