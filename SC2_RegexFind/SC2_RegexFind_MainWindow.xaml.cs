@@ -28,6 +28,7 @@ namespace SC2_RegexFind
         public const string Const_NameID = "id";
         public const string Const_NameParent = "parent";
         public const string Const_NameToken = "token";
+        public const string Const_RegexSearch = "((?<= <{0}\\s+value=\\\")(\\w+\\\\)+\\w+.\\w+\\w(?=\\\"))|";
         public static readonly Regex Const_RegexTokenID = new Regex("(?<=id=\")\\w*(?=\")", RegexOptions.Compiled);
         public static readonly Regex Const_RegexTokenValue = new Regex("(?<=value=\")\\w*(?=\")", RegexOptions.Compiled);
         public static readonly Regex Const_RegexTokenFormat = new Regex("##\\w*##", RegexOptions.Compiled);
@@ -103,7 +104,9 @@ namespace SC2_RegexFind
         /// <param name="element">元素</param>
         public static void RemoveElementToken(XElement element)
         {
-            string id = element.Attribute(Const_NameID).Value;
+            XAttribute attribute = element.Attribute(Const_NameID);
+            if (attribute == null) return;
+            string id = attribute.Value;
             XAttribute parentAtt = element.Attribute("parent");
             DictTokenCurrent = new Dictionary<string, string>();
             if (parentAtt != null)
@@ -164,7 +167,15 @@ namespace SC2_RegexFind
         {
             try
             {
-                return new Regex(pattern, RegexOptions.Compiled);
+                if (string.IsNullOrWhiteSpace(pattern)) return null;
+                List<string> patternList = pattern.Split(' ').ToList();
+                string formatedPattern = "";
+                foreach (string select in patternList)
+                {
+                    if (!string.IsNullOrWhiteSpace(select)) formatedPattern += string.Format(Const_RegexSearch, select);
+                }
+                formatedPattern = formatedPattern.Substring(0, formatedPattern.Length - 1);
+                return new Regex(formatedPattern, RegexOptions.Compiled);
             }
             catch
             {
@@ -184,7 +195,7 @@ namespace SC2_RegexFind
             MatchCollection matchs = regex.Matches(input);
             foreach (Match match in matchs)
             {
-                if (match.Length != 0) resultList.Add(match.Value);
+                if (match.Length != 0 && !resultList.Contains(match.Value)) resultList.Add(match.Value);
             }
 
             return resultList;
