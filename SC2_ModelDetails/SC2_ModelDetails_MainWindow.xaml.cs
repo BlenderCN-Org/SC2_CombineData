@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,22 @@ namespace SC2_ModelDetails
     {
         #region 常量声明
 
-        public const string Const_ModelList = "../../../TestXml/ModelList.txt";
+        public const string Const_CDPath = "cd ../../../TestM3/m3addon";
+        public const string Const_PythonPath = "py -3 m3ToXml.py ";
+
+        #endregion
+
+        #region 属性字段
+
+        /// <summary>
+        /// 模型列表
+        /// </summary>
+        public List<FileInfo> ModelList { set; get; }
+
+        /// <summary>
+        /// 贴图列表
+        /// </summary>
+        public List<string> TextureList { set; get; }
 
         #endregion
 
@@ -38,12 +54,6 @@ namespace SC2_ModelDetails
             TextEditor_ModPaths.Text = 
 @"C:\Game\StarCraft II\Mods\Game\Delphinium_Model_1.0.SC2Mod
 C:\Game\StarCraft II\Mods\Game\Delphinium_Model_Patch_1.0.SC2mod";
-            if (File.Exists(Const_ModelList))
-            {
-                StreamReader sr = new StreamReader(Const_ModelList);
-                TextEditor_ModelList.Text = sr.ReadToEnd();
-                sr.Close();
-            }
         }
 
         #endregion
@@ -106,41 +116,51 @@ C:\Game\StarCraft II\Mods\Game\Delphinium_Model_Patch_1.0.SC2mod";
             return list;
         }
 
-        private List<FileInfo> GetModelList(List<DirectoryInfo> modList)
+        /// <summary>
+        /// 获取存在的文件
+        /// </summary>
+        /// <param name="dir">目录</param>
+        /// <param name="subIndex">截取位置</param>
+        /// <param name="modelList">模型列表</param>
+        /// <param name="textureList">贴图列表</param>
+        private void GetExistFiles(DirectoryInfo dir, int subIndex, ref List<FileInfo> modelList, ref List<string> textureList)
         {
-            List<FileInfo> list = new List<FileInfo>();
-            List<string> others = new List<string>();
-            foreach (string path in TextEditor_ModelList.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (FileInfo childFile in dir.GetFiles())
             {
-                if (!string.IsNullOrWhiteSpace(path))
+                if (childFile.Extension == ".m3")
                 {
-                    bool exist = false;
-                    foreach (DirectoryInfo dir in modList)
-                    {
-                        string modelPath = $"{dir.FullName}\\{path}";
-                        if (File.Exists(modelPath))
-                        {
-                            list.Add(new FileInfo(modelPath));
-                            exist = true;
-                            break;
-                        }
-                        else
-                        {
-                            int index = 0;
-                            modelPath = GetVariantPath(modelPath, index);
-                            while (File.Exists(modelPath))
-                            {
-                                list.Add(new FileInfo(modelPath));
-                                exist = true;
-                                index++;
-                                modelPath = GetVariantPath(modelPath, index);
-                            }
-                        }
-                    }
-                    if (!exist) others.Add(path);
+                    modelList.Add(childFile);
+                }
+                if (childFile.Extension == ".dds" || childFile.Extension == ".tga")
+                {
+                    textureList.Add(childFile.FullName.Substring(subIndex));
                 }
             }
-            if (others.Count != 0) throw new Exception(ListToString(others));
+            foreach (DirectoryInfo childDir in dir.GetDirectories())
+            {
+                GetExistFiles(childDir, subIndex, ref modelList, ref textureList);
+            }
+        }
+
+        private static List<string> CallPythonScriptGetTexture(FileInfo file)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
+            process.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
+            process.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
+            process.StartInfo.RedirectStandardError = true;//重定向标准错误输出
+            process.StartInfo.CreateNoWindow = true;//不显示程序窗口
+            process.Start();//启动程序
+            //向cmd窗口发送输入信息
+            process.StandardInput.WriteLine(Const_CDPath);
+            string msg = $"{Const_PythonPath}" + "\"" + file.FullName + "\"& exit";
+            process.StandardInput.WriteLine(msg);
+
+            process.StandardInput.AutoFlush = true;
+            string output = process.StandardOutput.ReadToEnd();
+
+            List<string> list = new List<string>();
             return list;
         }
 
@@ -149,15 +169,45 @@ C:\Game\StarCraft II\Mods\Game\Delphinium_Model_Patch_1.0.SC2mod";
         #region 控件事件
 
         /// <summary>
-        /// 生成按钮点击事件
+        /// 生成文件按钮点击事件
         /// </summary>
         /// <param name="sender">响应对象</param>
         /// <param name="e">响应参数</param>
         private void Button_GenerateFileList_Click(object sender, RoutedEventArgs e)
         {
             List<DirectoryInfo> modList = GetModList();
-            List<FileInfo> modelPath = GetModelList(modList);
+            List<FileInfo> modelList = new List<FileInfo>();
+            List<string> textureList = new List<string>();
+            foreach (DirectoryInfo dir in modList)
+            {
+                GetExistFiles(dir, dir.FullName.Length + 1, ref modelList, ref textureList);
+            }
+            ModelList = modelList;
+            TextureList = textureList;
+            TextEditor_ModelList.Text = ListToString(modelList.Select(r=>r.FullName).ToList());
+            TextEditor_TextureList.Text = ListToString(textureList);
+        }
+
+        /// <summary>
+        /// 生成使用贴图列表按钮点击事件
+        /// </summary>
+        /// <param name="sender">响应对象</param>
+        /// <param name="e">响应参数</param>
+        private void Button_GenerateUseTextureList_Click(object sender, RoutedEventArgs e)
+        {
+            CallPythonScriptGetTexture(new FileInfo("../../../TestM3/m3addon/NanaKey_TO_landingship_Warp_In.m3"));
+        }
+
+        /// <summary>
+        /// 生成缺少贴图列表按钮点击事件
+        /// </summary>
+        /// <param name="sender">响应对象</param>
+        /// <param name="e">响应参数</param>
+        private void Button_GenerateLostTextureList_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         #endregion
+
     }
 }
