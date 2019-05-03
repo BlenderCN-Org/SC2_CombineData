@@ -33,7 +33,7 @@ namespace SC2_CombineData
         public const string Const_CMD_NAME = "-Name";
         public readonly List<string> Const_ModPath = new List<string>()
         {
-             @"\Mods\Core.Mod\Base.Data\GameData\",
+             @"\Mods\Core.SC2Mod\Base.SC2Data\GameData\",
              @"\Mods\Liberty.SC2Mod\Base.SC2Data\GameData\",
              @"\Campaigns\Liberty.SC2Campaign\Base.SC2Data\GameData\",
              @"\Mods\Swarm.SC2Mod\Base.SC2Data\GameData\",
@@ -54,7 +54,7 @@ namespace SC2_CombineData
         /// <summary>
         /// Mod基本路径
         /// </summary>
-        public string InitBasePath { set; get; } = Environment.CurrentDirectory;
+        public string InitBasePath { set; get; } = "E:\\CASC\\SC2";
 
         /// <summary>
         /// Mod基本文件名

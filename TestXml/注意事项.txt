@@ -1,0 +1,3 @@
+模型方面
+ShieldBattery在继承它的ShieldBatteryBirth之后声明
+PlanetViewsEX1在继承它的PlanetViewKorhal后声明

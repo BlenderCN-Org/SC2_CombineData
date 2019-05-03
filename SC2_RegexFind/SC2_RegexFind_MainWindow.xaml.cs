@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using System.IO;
 
 namespace SC2_RegexFind
 {
@@ -25,9 +26,12 @@ namespace SC2_RegexFind
     {
         #region 常量声明
 
+        public const string Const_PathData = "../../../TestXml/Data.xml";
+        public const string Const_PathList = "../../../TestXml/listfile.txt";
         public const string Const_NameID = "id";
         public const string Const_NameParent = "parent";
         public const string Const_NameToken = "token";
+        //public const string Const_RegexSearch = "((?<= <{0}\\s+File=\\\")(\\w+\\\\)+\\w+.\\w+\\w(?=\\\"))|";
         public const string Const_RegexSearch = "((?<= <{0}\\s+value=\\\")(\\w+\\\\)+\\w+.\\w+\\w(?=\\\"))|";
         public static readonly Regex Const_RegexTokenID = new Regex("(?<=id=\")\\w*(?=\")", RegexOptions.Compiled);
         public static readonly Regex Const_RegexTokenValue = new Regex("(?<=value=\")\\w*(?=\")", RegexOptions.Compiled);
@@ -57,6 +61,18 @@ namespace SC2_RegexFind
         public SC2_RegexFind_MainWindow()
         {
             InitializeComponent();
+            if (File.Exists(Const_PathData))
+            {
+                StreamReader sr = new StreamReader(Const_PathData);
+                TextEditor_SourceText.Text = sr.ReadToEnd();
+                sr.Close();
+            }
+            if (File.Exists(Const_PathList))
+            {
+                StreamReader sr = new StreamReader(Const_PathList);
+                TextEditor_CompareText.Text = sr.ReadToEnd();
+                sr.Close();
+            }
         }
 
         #endregion
@@ -102,7 +118,7 @@ namespace SC2_RegexFind
         /// 移除元素token
         /// </summary>
         /// <param name="element">元素</param>
-        public static void RemoveElementToken(XElement element)
+        public static void GetElementToken(XElement element)
         {
             XAttribute attribute = element.Attribute(Const_NameID);
             if (attribute == null) return;
@@ -175,7 +191,7 @@ namespace SC2_RegexFind
                     if (!string.IsNullOrWhiteSpace(select)) formatedPattern += string.Format(Const_RegexSearch, select);
                 }
                 formatedPattern = formatedPattern.Substring(0, formatedPattern.Length - 1);
-                return new Regex(formatedPattern, RegexOptions.Compiled);
+                return new Regex(formatedPattern, RegexOptions.Compiled|RegexOptions.IgnoreCase);
             }
             catch
             {
@@ -226,7 +242,7 @@ namespace SC2_RegexFind
             XDocument document = XDocument.Parse(TextEditor_SourceText.Text);
             foreach (XElement element in document.Root.Elements())
             {
-                RemoveElementToken(element);
+                GetElementToken(element);
             }
             TextEditor_SourceText.Text = document.ToString();
         }
@@ -260,6 +276,16 @@ namespace SC2_RegexFind
         /// <param name="e">响应参数</param>
         private void Button_Compare_Click(object sender, RoutedEventArgs e)
         {
+            List<string> source = TextEditor_ResultText.Text.Split(new char[] { '\r', '\n' }).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => r).ToList();
+            List<string> compare = TextEditor_CompareText.Text.Split(new char[] { '\r', '\n' }).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => r).ToList();
+            List<string> result = source.Where(r => !compare.Contains(r)).Select(r => r).ToList();
+            StringBuilder builder = new StringBuilder(result[0]);
+            for (int i = 1; i < result.Count; i++)
+            {
+                builder.Append("\r\n");
+                builder.Append(result[i]);
+            }
+            TextEditor_ResultText.Text = builder.ToString();
         }
 
         #endregion
