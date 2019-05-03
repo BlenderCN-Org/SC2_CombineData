@@ -39,7 +39,6 @@
                 <TextBox
                     Name="TextBox_Regex"
                     Grid.Column="0"
-                    Text="Model Image RequiredAnims"
                     Margin="3" />
                 <Button
                     Name="Button_Modify"

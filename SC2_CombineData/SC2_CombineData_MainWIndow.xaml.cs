@@ -59,7 +59,8 @@ namespace SC2_CombineData
         /// <summary>
         /// Mod基本文件名
         /// </summary>
-        public string InitFileName { set; get; } = @"ModelData.xml";
+        //public string InitFileName { set; get; } = @"ModelData.xml";
+        public string InitFileName { set; get; } = @"SoundData.xml";
 
         #endregion
 
@@ -244,6 +245,7 @@ namespace SC2_CombineData
         {
             SC2_FileListViewItem item = new SC2_FileListViewItem("");
             ListView_FileList.Items.Add(item);
+            MainWindow.RefreshGenerateButton();
         }
 
         /// <summary>
@@ -258,6 +260,7 @@ namespace SC2_CombineData
             {
                 ListView_FileList.Items.Remove(item);
             }
+            MainWindow.RefreshGenerateButton();
         }
 
         /// <summary>

@@ -53,7 +53,7 @@ namespace SC2_RegexFind
 
         #endregion
 
-        #region 构造寒地
+        #region 构造函数
 
         /// <summary>
         /// 构造函数
@@ -61,6 +61,9 @@ namespace SC2_RegexFind
         public SC2_RegexFind_MainWindow()
         {
             InitializeComponent();
+            //TextBox_Regex.Text = "AssetArray";
+            //TextBox_Regex.Text = "File";
+            TextBox_Regex.Text = "Model Image RequiredAnims";
             if (File.Exists(Const_PathData))
             {
                 StreamReader sr = new StreamReader(Const_PathData);
@@ -78,6 +81,19 @@ namespace SC2_RegexFind
         #endregion
 
         #region 方法
+
+        /// <summary>
+        /// 比较路径
+        /// </summary>
+        /// <param name="source">源路径</param>
+        /// <returns>变体路径</returns>
+        public static string GetVariantPath(string source)
+        {
+            string extension = System.IO.Path.GetExtension(source);
+            string newSource = source.Substring(0, source.LastIndexOf('.')) + "_00" + extension;
+            return newSource;
+
+        }
 
         /// <summary>
         /// 转换Token
@@ -276,9 +292,9 @@ namespace SC2_RegexFind
         /// <param name="e">响应参数</param>
         private void Button_Compare_Click(object sender, RoutedEventArgs e)
         {
-            List<string> source = TextEditor_ResultText.Text.Split(new char[] { '\r', '\n' }).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => r).ToList();
-            List<string> compare = TextEditor_CompareText.Text.Split(new char[] { '\r', '\n' }).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => r).ToList();
-            List<string> result = source.Where(r => !compare.Contains(r)).Select(r => r).ToList();
+            List<string> source = TextEditor_ResultText.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => r).ToList();
+            List<string> compare = TextEditor_CompareText.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => r).ToList();
+            List<string> result = source.Where(r => !compare.Contains(r) && !compare.Contains(GetVariantPath(r))).GroupBy(r=>r).Select(r=>r.First()).ToList();
             StringBuilder builder = new StringBuilder(result[0]);
             for (int i = 1; i < result.Count; i++)
             {
