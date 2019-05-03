@@ -41,6 +41,11 @@ namespace SC2_ModelDetails
         /// </summary>
         public List<string> TextureList { set; get; }
 
+        /// <summary>
+        /// 基本路径长度
+        /// </summary>
+        public int BasePathLength { set; get; }
+
         #endregion
 
         #region 构造函数
@@ -51,9 +56,10 @@ namespace SC2_ModelDetails
         public SC2_ModelDetails_MainWindow()
         {
             InitializeComponent();
+            TextBox_BasePath.Text = @"C:\Game\StarCraft II\Mods\Game\";
             TextEditor_ModPaths.Text = 
-@"C:\Game\StarCraft II\Mods\Game\Delphinium_Model_1.0.SC2Mod
-C:\Game\StarCraft II\Mods\Game\Delphinium_Model_Patch_1.0.SC2mod";
+@"Delphinium_Model_1.0.SC2Mod
+Delphinium_Model_Patch_1.0.SC2mod";
         }
 
         #endregion
@@ -102,17 +108,19 @@ C:\Game\StarCraft II\Mods\Game\Delphinium_Model_Patch_1.0.SC2mod";
             {
                 if (!string.IsNullOrWhiteSpace(path))
                 {
-                    if (Directory.Exists(path))
+                    string fullPath = TextBox_BasePath.Text + path;
+                    if (Directory.Exists(fullPath))
                     {
-                        list.Insert(0, new DirectoryInfo(path));
+                        list.Insert(0, new DirectoryInfo(fullPath));
                     }
                     else
                     {
-                        others.Add(path);
+                        others.Add(fullPath);
                     }
                 }
             }
             if (others.Count != 0) throw new Exception(ListToString(others));
+            BasePathLength = TextBox_BasePath.Text.Length + 1;
             return list;
         }
 
@@ -142,7 +150,13 @@ C:\Game\StarCraft II\Mods\Game\Delphinium_Model_Patch_1.0.SC2mod";
             }
         }
 
-        private static List<string> CallPythonScriptGetTexture(FileInfo file)
+        /// <summary>
+        /// 通过脚本获取贴图
+        /// </summary>
+        /// <param name="file">模型文件名</param>
+        /// <param name="length">基本路径长度</param>
+        /// <returns>贴图列表</returns>
+        private static List<string> CallPythonScriptGetTexture(FileInfo file, int length)
         {
             Process process = new Process();
             process.StartInfo.FileName = "cmd.exe";
@@ -150,11 +164,13 @@ C:\Game\StarCraft II\Mods\Game\Delphinium_Model_Patch_1.0.SC2mod";
             process.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
             process.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
             process.StartInfo.RedirectStandardError = true;//重定向标准错误输出
-            process.StartInfo.CreateNoWindow = true;//不显示程序窗口
+            process.StartInfo.CreateNoWindow = false;//不显示程序窗口
             process.Start();//启动程序
             //向cmd窗口发送输入信息
             process.StandardInput.WriteLine(Const_CDPath);
-            string msg = $"{Const_PythonPath}" + "\"" + file.FullName + "\"& exit";
+            DirectoryInfo dir = new DirectoryInfo("Temp\\" + file.DirectoryName.Substring(length));
+            if (!dir.Exists) dir.Create();
+            string msg = $"{Const_PythonPath}" + "\"" + file.FullName + "\" -o \"" + dir.FullName + "\" & exit";
             process.StandardInput.WriteLine(msg);
 
             process.StandardInput.AutoFlush = true;
@@ -195,7 +211,7 @@ C:\Game\StarCraft II\Mods\Game\Delphinium_Model_Patch_1.0.SC2mod";
         /// <param name="e">响应参数</param>
         private void Button_GenerateUseTextureList_Click(object sender, RoutedEventArgs e)
         {
-            CallPythonScriptGetTexture(new FileInfo("../../../TestM3/m3addon/NanaKey_TO_landingship_Warp_In.m3"));
+            CallPythonScriptGetTexture(new FileInfo(@"C:\Game\StarCraft II\Mods\Game\Delphinium_Model_1.0.SC2Mod\Assets\Models\FrogKey_TO_Jetboat_DeathV2\FrogKey_TO_Jetboat_DeathV2_PrtMdl_Explosion.m3"), BasePathLength);
         }
 
         /// <summary>
