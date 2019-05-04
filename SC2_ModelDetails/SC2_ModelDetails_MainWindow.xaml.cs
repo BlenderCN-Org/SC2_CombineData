@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,9 @@ namespace SC2_ModelDetails
 
         public const string Const_CDPath = "cd ../../../TestM3/m3addon";
         public const string Const_PythonPath = "py -3 m3ToXml.py ";
+        public const string Const_NameFailList = "FailedModel.log";
+        public const string Const_NameSuccessList = "SuccessModel.log";
+        public static readonly Regex Const_RegexTextureinDetails = new Regex("(?<=<imagePath>)([^\\/:*?\"<>|\\r\\n]+[\\/])*[^\\/:*?\"<>|\\r\\n]+(?=</imagePath>)", RegexOptions.Compiled);
 
         #endregion
 
@@ -65,6 +69,23 @@ Delphinium_Model_Patch_1.0.SC2mod";
         #endregion
 
         #region 方法
+
+        /// <summary>
+        /// 读取模型详情
+        /// </summary>
+        /// <param name="file">模型</param>
+        /// <param name="textureList">贴图列表</param>
+        public static void ReadModelDetails(FileInfo file, ref List<string> textureList)
+        {
+            StreamReader sr = new StreamReader(file.FullName);
+            string details = sr.ReadToEnd();
+            sr.Close();
+            MatchCollection matchs = Const_RegexTextureinDetails.Matches(details);
+            foreach (Match match in matchs)
+            {
+                textureList.Add(match.Value.Replace('/', '\\'));
+            }
+        }
 
         /// <summary>
         /// 比较路径
@@ -157,7 +178,7 @@ Delphinium_Model_Patch_1.0.SC2mod";
         /// <param name="length">基本路径长度</param>
         /// <param name="faildList">失败文件列表</param>
         /// <returns>贴图列表</returns>
-        private void CallPythonScriptGetTexture(FileInfo file, int length, ref List<string> faildList)
+        private void CallPythonScriptGetTexture(FileInfo file, int length, ref List<string> successList, ref List<string> faildList)
         {
             Process process = new Process();
             process.StartInfo.FileName = "cmd.exe";
@@ -180,7 +201,8 @@ Delphinium_Model_Patch_1.0.SC2mod";
             process.StandardOutput.ReadLine();
             string log = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
-            StreamWriter streamWriter = new StreamWriter($"{dir.FullName}\\{file.Name}.log");
+            string xmlPath = $"{dir.FullName}\\{file.Name}";
+            StreamWriter streamWriter = new StreamWriter($"{xmlPath}.log");
             streamWriter.Write(log);
             streamWriter.Close();
             string result = log.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Last();
@@ -190,7 +212,7 @@ Delphinium_Model_Patch_1.0.SC2mod";
             }
             else
             {
-
+                successList.Add($"{xmlPath}.xml");
             }
         }
 
@@ -215,7 +237,30 @@ Delphinium_Model_Patch_1.0.SC2mod";
             ModelList = modelList;
             TextureList = textureList;
             TextEditor_ModelList.Text = ListToString(modelList.Select(r=>r.FullName).ToList());
-            TextEditor_TextureList.Text = ListToString(textureList);
+            TextEditor_InsideTextureList.Text = ListToString(textureList);
+        }
+
+        /// <summary>
+        /// 生成模型Xml按钮点击事件
+        /// </summary>
+        /// <param name="sender">响应对象</param>
+        /// <param name="e">响应参数</param>
+        private void Button_GenerateModelXml_Click(object sender, RoutedEventArgs e)
+        {
+            if (Directory.Exists("Temp")) Directory.Delete("Temp", true);
+            List<string> faildList = new List<string>();
+            List<string> successList = new List<string>();
+            Parallel.ForEach(ModelList, (file) =>
+            {
+                CallPythonScriptGetTexture(file, BasePathLength, ref successList, ref faildList);
+            });
+            StreamWriter streamWriter = new StreamWriter(Const_NameFailList, false);
+            streamWriter.Write(ListToString(faildList));
+            streamWriter.Close();
+            streamWriter = new StreamWriter(Const_NameSuccessList, false);
+            streamWriter.Write(ListToString(successList));
+            streamWriter.Close();
+            MessageBox.Show("生成模型Xml完成！");
         }
 
         /// <summary>
@@ -225,22 +270,25 @@ Delphinium_Model_Patch_1.0.SC2mod";
         /// <param name="e">响应参数</param>
         private void Button_GenerateUseTextureList_Click(object sender, RoutedEventArgs e)
         {
-            if (Directory.Exists("Temp")) Directory.Delete("Temp", true);
-            List<string> faildList = new List<string>();
-            Parallel.ForEach(ModelList, (file) =>
+            StreamReader streamReader = new StreamReader(Const_NameSuccessList);
+            string text = streamReader.ReadToEnd();
+            streamReader.Close();
+            string[] pathArray = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            List<FileInfo> xmlList = new List<FileInfo>();
+            foreach (string path in pathArray)
             {
-                CallPythonScriptGetTexture(file, BasePathLength, ref faildList);
+                FileInfo file = new FileInfo(path);
+                if (!file.Exists) throw new Exception();
+                xmlList.Add(file);
+            }
+            List<string> textureList = new List<string>();
+            Parallel.ForEach(xmlList, (file) =>
+            {
+                ReadModelDetails(file, ref textureList);
             });
-            //foreach (FileInfo file in ModelList)
-            //{
-            //    CallPythonScriptGetTexture(file, BasePathLength, ref faildList);
-            //}
-
-            StreamWriter streamWriter = new StreamWriter($"FailedModel.log");
-            streamWriter.Write(ListToString(faildList));
-            streamWriter.Close();
+            textureList = textureList.GroupBy(r => r).Select(r => r.First()).ToList();
+            TextEditor_ResultTextureList.Text = ListToString(textureList);
             MessageBox.Show("生成使用贴图完成！");
-
         }
 
         /// <summary>
@@ -250,7 +298,7 @@ Delphinium_Model_Patch_1.0.SC2mod";
         /// <param name="e">响应参数</param>
         private void Button_GenerateLostTextureList_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
         #endregion
 

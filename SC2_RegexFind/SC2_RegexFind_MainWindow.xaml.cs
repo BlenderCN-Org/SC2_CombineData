@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define SOUNDMODE
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -31,15 +32,104 @@ namespace SC2_RegexFind
         public const string Const_NameID = "id";
         public const string Const_NameParent = "parent";
         public const string Const_NameToken = "token";
-        //public const string Const_RegexSearch = "((?<= <{0}\\s+File=\\\")(\\w+\\\\)+\\w+.\\w+\\w(?=\\\"))|";
-        public const string Const_RegexSearch = "((?<= <{0}\\s+value=\\\")(\\w+\\\\)+\\w+.\\w+\\w(?=\\\"))|";
+        public const string Const_RegexSearchFile = "((?<= <{0}\\s+File=\\\")(\\w+\\\\)+\\w+.\\w+\\w(?=\\\"))|";
+        public const string Const_RegexSearchValue = "((?<= <{0}\\s+value=\\\")(\\w+\\\\)+\\w+.\\w+\\w(?=\\\"))|";
         public static readonly Regex Const_RegexTokenID = new Regex("(?<=id=\")\\w*(?=\")", RegexOptions.Compiled);
         public static readonly Regex Const_RegexTokenValue = new Regex("(?<=value=\")\\w*(?=\")", RegexOptions.Compiled);
         public static readonly Regex Const_RegexTokenFormat = new Regex("##\\w*##", RegexOptions.Compiled);
 
-        #endregion
+        /// <summary>
+        /// 小写字符串
+        /// </summary>
+        public class LowerString : IEquatable<LowerString>
+        {
+#region 属性字段
 
-        #region 属性字段
+            /// <summary>
+            /// 值
+            /// </summary>
+            public string Value { set; get; }
+            /// <summary>
+            /// 原始值
+            /// </summary>
+            public string Source { set; get; }
+
+#endregion
+#region 构造函数
+
+            /// <summary>
+            /// 构造函数
+            /// </summary>
+            /// <param name="value">初始值</param>
+            public LowerString(string value)
+            {
+                Value = value.ToLower();
+                Source = value;
+            }
+
+#endregion
+
+#region 方法
+            
+            /// <summary>
+            /// 等于
+            /// </summary>
+            /// <param name="obj">判断值</param>
+            /// <returns>结果</returns>
+            public override bool Equals(object obj)
+            {
+                return Equals(obj as LowerString);
+            }
+
+            /// <summary>
+            /// 等于
+            /// </summary>
+            /// <param name="other">判断值</param>
+            /// <returns>结果</returns>
+            public bool Equals(LowerString other)
+            {
+                return other != null &&
+                       Value == other.Value;
+            }
+
+            /// <summary>
+            /// 获取哈希值
+            /// </summary>
+            /// <returns>哈希值</returns>
+            public override int GetHashCode()
+            {
+                return -1937169414 + EqualityComparer<string>.Default.GetHashCode(Value);
+            }
+
+            /// <summary>
+            /// 等于操作符
+            /// </summary>
+            /// <param name="left">左值</param>
+            /// <param name="right">右值</param>
+            /// <returns>结果</returns>
+            public static bool operator ==(LowerString left, LowerString right)
+            {
+                return EqualityComparer<LowerString>.Default.Equals(left, right);
+            }
+
+            /// <summary>
+            /// 不等于操作符
+            /// </summary>
+            /// <param name="left">左值</param>
+            /// <param name="right">右值</param>
+            /// <returns>结果</returns>
+            public static bool operator !=(LowerString left, LowerString right)
+            {
+                return !(left == right);
+            }
+
+
+#endregion
+        }
+
+#endregion
+
+#region 属性字段
 
         /// <summary>
         /// 全部Token字典
@@ -51,9 +141,9 @@ namespace SC2_RegexFind
         /// </summary>
         public static Dictionary<string, string> DictTokenCurrent { set; get; }
 
-        #endregion
+#endregion
 
-        #region 构造函数
+#region 构造函数
 
         /// <summary>
         /// 构造函数
@@ -61,9 +151,11 @@ namespace SC2_RegexFind
         public SC2_RegexFind_MainWindow()
         {
             InitializeComponent();
-            //TextBox_Regex.Text = "AssetArray";
-            //TextBox_Regex.Text = "File";
+#if SOUNDMODE
+            TextBox_Regex.Text = "AssetArray File";
+#else
             TextBox_Regex.Text = "Model Image RequiredAnims";
+#endif
             if (File.Exists(Const_PathData))
             {
                 StreamReader sr = new StreamReader(Const_PathData);
@@ -78,20 +170,20 @@ namespace SC2_RegexFind
             }
         }
 
-        #endregion
+#endregion
 
-        #region 方法
+#region 方法
 
         /// <summary>
         /// 比较路径
         /// </summary>
         /// <param name="source">源路径</param>
         /// <returns>变体路径</returns>
-        public static string GetVariantPath(string source)
+        public static LowerString GetVariantPath(LowerString source)
         {
-            string extension = System.IO.Path.GetExtension(source);
-            string newSource = source.Substring(0, source.LastIndexOf('.')) + "_00" + extension;
-            return newSource;
+            string extension = System.IO.Path.GetExtension(source.Value);
+            string newSource = source.Value.Substring(0, source.Value.LastIndexOf('.')) + "_00" + extension;
+            return new LowerString(newSource);
 
         }
 
@@ -204,7 +296,13 @@ namespace SC2_RegexFind
                 string formatedPattern = "";
                 foreach (string select in patternList)
                 {
-                    if (!string.IsNullOrWhiteSpace(select)) formatedPattern += string.Format(Const_RegexSearch, select);
+                    if (!string.IsNullOrWhiteSpace(select))
+                    {
+                        formatedPattern += string.Format(Const_RegexSearchValue, select);
+#if SOUNDMODE
+                        formatedPattern += string.Format(Const_RegexSearchFile, select);
+#endif
+                    }
                 }
                 formatedPattern = formatedPattern.Substring(0, formatedPattern.Length - 1);
                 return new Regex(formatedPattern, RegexOptions.Compiled|RegexOptions.IgnoreCase);
@@ -244,9 +342,9 @@ namespace SC2_RegexFind
             return GetMatchText(regex, TextEditor_SourceText.Text);
         }
 
-        #endregion
+#endregion
 
-        #region 控件事件
+#region 控件事件
 
         /// <summary>
         /// 转换按钮点击事件
@@ -292,9 +390,9 @@ namespace SC2_RegexFind
         /// <param name="e">响应参数</param>
         private void Button_Compare_Click(object sender, RoutedEventArgs e)
         {
-            List<string> source = TextEditor_ResultText.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => r).ToList();
-            List<string> compare = TextEditor_CompareText.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => r).ToList();
-            List<string> result = source.Where(r => !compare.Contains(r) && !compare.Contains(GetVariantPath(r))).GroupBy(r=>r).Select(r=>r.First()).ToList();
+            List<LowerString> source = TextEditor_ResultText.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => new LowerString(r)).ToList();
+            List<LowerString> compare = TextEditor_CompareText.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Where(r => !string.IsNullOrWhiteSpace(r)).Select(r => new LowerString(r)).ToList();
+            List<string> result = source.Where(r => !compare.Contains(r) && !compare.Contains(GetVariantPath(r))).GroupBy(r=>r).Select(r=>r.First()).Select(r=>r.Source).ToList();
             StringBuilder builder = new StringBuilder(result[0]);
             for (int i = 1; i < result.Count; i++)
             {
@@ -302,12 +400,13 @@ namespace SC2_RegexFind
                 builder.Append(result[i]);
             }
             TextEditor_ResultText.Text = builder.ToString();
+            MessageBox.Show("比较完成！");
         }
 
-        #endregion
+#endregion
 
     }
-    #region Converter
+#region Converter
 
     /// <summary>
     /// 选择项到删除按钮可用转换器
@@ -348,5 +447,5 @@ namespace SC2_RegexFind
         }
     }
 
-    #endregion
+#endregion
 }

@@ -73,7 +73,7 @@
             Margin="3"
             Header="内部贴图列表">
             <avalon:TextEditor
-                Name="TextEditor_TextureList"
+                Name="TextEditor_InsideTextureList"
                 ShowLineNumbers="True"
                 SyntaxHighlighting="XML"
                 WordWrap="True" />
@@ -85,7 +85,7 @@
             Margin="3"
             Header="内部素材列表">
             <avalon:TextEditor
-                Name="TextEditor_FileLIst"
+                Name="TextEditor_ResultTextureList"
                 ShowLineNumbers="True"
                 SyntaxHighlighting="XML"
                 WordWrap="True" />
@@ -104,6 +104,12 @@
                     Click="Button_GenerateFileList_Click"
                     Content="生成现有文件列表" />
                 <Button
+                    Name="Button_GenerateModelXml"
+                    Margin="3"
+                    Padding="10,2"
+                    Click="Button_GenerateModelXml_Click"
+                    Content="生成模型Xml文件" />
+                <Button
                     Name="Button_GenerateUseTextureList"
                     Margin="3"
                     Padding="10,2"
@@ -115,7 +121,6 @@
                     Padding="10,2"
                     Click="Button_GenerateLostTextureList_Click"
                     Content="生成缺少贴图列表" />
-
             </StackPanel>
         </GroupBox>
     </Grid>
