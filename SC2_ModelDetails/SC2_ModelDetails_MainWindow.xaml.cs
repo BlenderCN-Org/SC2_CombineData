@@ -120,7 +120,7 @@ Delphinium_Model_Patch_1.0.SC2mod";
                 }
             }
             if (others.Count != 0) throw new Exception(ListToString(others));
-            BasePathLength = TextBox_BasePath.Text.Length + 1;
+            BasePathLength = TextBox_BasePath.Text.Length;
             return list;
         }
 
@@ -153,10 +153,11 @@ Delphinium_Model_Patch_1.0.SC2mod";
         /// <summary>
         /// 通过脚本获取贴图
         /// </summary>
-        /// <param name="file">模型文件名</param>
+        /// <param name="mod">模型文件名</param>
         /// <param name="length">基本路径长度</param>
+        /// <param name="faildList">失败文件列表</param>
         /// <returns>贴图列表</returns>
-        private static List<string> CallPythonScriptGetTexture(FileInfo file, int length)
+        private void CallPythonScriptGetTexture(FileInfo file, int length, ref List<string> faildList)
         {
             Process process = new Process();
             process.StartInfo.FileName = "cmd.exe";
@@ -164,20 +165,33 @@ Delphinium_Model_Patch_1.0.SC2mod";
             process.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
             process.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
             process.StartInfo.RedirectStandardError = true;//重定向标准错误输出
-            process.StartInfo.CreateNoWindow = false;//不显示程序窗口
+            process.StartInfo.CreateNoWindow = true;//不显示程序窗口
             process.Start();//启动程序
             //向cmd窗口发送输入信息
             process.StandardInput.WriteLine(Const_CDPath);
+            process.StandardInput.AutoFlush = true;
             DirectoryInfo dir = new DirectoryInfo("Temp\\" + file.DirectoryName.Substring(length));
             if (!dir.Exists) dir.Create();
             string msg = $"{Const_PythonPath}" + "\"" + file.FullName + "\" -o \"" + dir.FullName + "\" & exit";
             process.StandardInput.WriteLine(msg);
-
             process.StandardInput.AutoFlush = true;
-            string output = process.StandardOutput.ReadToEnd();
+            process.StandardOutput.ReadLine();
+            process.StandardOutput.ReadLine();
+            process.StandardOutput.ReadLine();
+            string log = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+            StreamWriter streamWriter = new StreamWriter($"{dir.FullName}\\{file.Name}.log");
+            streamWriter.Write(log);
+            streamWriter.Close();
+            string result = log.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Last();
+            if (!result.StartsWith("1 files found, 1 converted"))
+            {
+                faildList.Add(file.FullName);
+            }
+            else
+            {
 
-            List<string> list = new List<string>();
-            return list;
+            }
         }
 
         #endregion
@@ -211,7 +225,22 @@ Delphinium_Model_Patch_1.0.SC2mod";
         /// <param name="e">响应参数</param>
         private void Button_GenerateUseTextureList_Click(object sender, RoutedEventArgs e)
         {
-            CallPythonScriptGetTexture(new FileInfo(@"C:\Game\StarCraft II\Mods\Game\Delphinium_Model_1.0.SC2Mod\Assets\Models\FrogKey_TO_Jetboat_DeathV2\FrogKey_TO_Jetboat_DeathV2_PrtMdl_Explosion.m3"), BasePathLength);
+            if (Directory.Exists("Temp")) Directory.Delete("Temp", true);
+            List<string> faildList = new List<string>();
+            Parallel.ForEach(ModelList, (file) =>
+            {
+                CallPythonScriptGetTexture(file, BasePathLength, ref faildList);
+            });
+            //foreach (FileInfo file in ModelList)
+            //{
+            //    CallPythonScriptGetTexture(file, BasePathLength, ref faildList);
+            //}
+
+            StreamWriter streamWriter = new StreamWriter($"FailedModel.log");
+            streamWriter.Write(ListToString(faildList));
+            streamWriter.Close();
+            MessageBox.Show("生成使用贴图完成！");
+
         }
 
         /// <summary>
